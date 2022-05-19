@@ -1,0 +1,16 @@
+.textBanner {
+  position: absolute;
+  left: 50%;
+  bottom: 5%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-family: 'Playball', cursive;
+}
+
+.character {
+  position: absolute;
+  width: 747px;
+  height: 747px;
+  right: 5%;
+  top: 10%;
+}

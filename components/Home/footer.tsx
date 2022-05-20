@@ -1,4 +1,4 @@
-const Footer = () => {
+export const Footer = () => {
   return (
     <footer className="flex justify-between pt-10 px-28">
       <img width={250} src="/images/footer-left.png" alt="footer left" />
@@ -25,4 +25,3 @@ const Footer = () => {
     </footer>
   )
 }
-export default Footer

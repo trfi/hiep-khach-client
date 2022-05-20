@@ -1,6 +1,6 @@
 import styles from './banner.module.css'
 
-const Banner = () => {
+export const Banner = () => {
   return (
     <div id='banner' className='relative text-center'>
       <img className='object-cover w-full' src="/images/banner.png" alt="banner" />
@@ -13,4 +13,3 @@ const Banner = () => {
     </div>
   )
 }
-export default Banner

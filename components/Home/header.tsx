@@ -1,6 +1,6 @@
 import styles from './Header.module.css'
 
-const Header = () => {
+export const Header = () => {
   return (
     <>
       <div className={styles.logo}>
@@ -34,4 +34,3 @@ const Header = () => {
     </>
   )
 }
-export default Header

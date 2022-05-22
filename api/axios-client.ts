@@ -1,7 +1,9 @@
 import axios from 'axios'
+import getConfig from 'next/config';
+const { publicRuntimeConfig } = getConfig();
 
 const axiosClient = axios.create({
-	baseURL: '/api',
+	baseURL: publicRuntimeConfig.apiUrl || 'https://api.hiepkhachtranhhung.com',
 	headers: {
 		'Content-Type': 'application/json',
 	},

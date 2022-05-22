@@ -51,7 +51,7 @@ export function useAuth(
   async function logout() {
     await authApi.logout()
     mutate(null, false)
-    router.push('/')
+    window.location.href = '/'
   }
 
   useEffect(() => {

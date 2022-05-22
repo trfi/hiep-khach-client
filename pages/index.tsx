@@ -63,7 +63,7 @@ const Home: NextPage = () => {
         >
           <div className="flex items-center gap-4">
             <img src="/images/android.png" width={50} alt="android" />
-            <a href="https://drive.google.com/file/d/1-Htt_uDXMJUFMVbFQtEBiFgwK-6bEXqN/view?usp=sharing">Tải xuống</a>
+            <a target='_blank' href="https://drive.google.com/file/d/1-Htt_uDXMJUFMVbFQtEBiFgwK-6bEXqN/view?usp=sharing">Tải xuống</a>
           </div>
           <div className="flex items-center gap-4">
             <img src="/images/ios.png" width={70} alt="android" />

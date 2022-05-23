@@ -6,7 +6,16 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Hiệp Khách Giang Hồ</title>
+        <title>Hiệp Khách Tranh Hùng</title>
+        <meta name="description" content="MMORPG, HIEP KHACH - PLAY AND EARN 2022" />
+        <meta name="keywords" content="HIEP KHACH TRANH HUNG - PLAY AND EARN 2022, MMORPG, RPG" />
+        <meta name="url" content="https://hiepkhachtranhhung.com" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="MMORPG,HIEP KHACH TRANH HUNG - PLAY AND EARN 2022" />
+        <meta property="og:description" content="MMORPG, HIEP KHACH TRANH HUNG - PLAY AND EARN 2022" />
+        <meta property="og:url" content="https://hiepkhachtranhhung.com" />
+        <meta property="og:image" content="images/meta.png" />
+        <meta name="twitter:card" content="summary_large_image" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header></Header>

@@ -265,7 +265,6 @@ const TreeList = () => {
     <>
       <div className="my-6 flex w-full flex-wrap">
         <div className="max-w-full grow basis-0 text-center">
-          <h2 className="text-2xl font-bold">User Referal</h2>
           <div className="mt-8">
             <div className="-mx-4- mt-3 flex flex-wrap justify-center">
               <div className="col-lg-8 rounded-xl bg-gray-700 py-6 text-left text-white">

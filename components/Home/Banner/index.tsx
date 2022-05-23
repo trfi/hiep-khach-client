@@ -9,7 +9,9 @@ export const Banner = () => {
         Bất kỳ ai, chỉ cần thắng là chính nghĩa thuộc về họ”  <br />
         ‘ Tống Lợi ‘
       </h4>
-      <img className={styles.character} src="/images/nv.svg" alt="nv" />
+      <div>
+        <img className='absolute w-[200px] lg:w-[547px] right-[1%] top-[1%]' src="/images/character1.svg" alt="character" />
+      </div>
     </div>
   )
 }

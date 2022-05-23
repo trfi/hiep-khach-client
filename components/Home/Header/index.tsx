@@ -1,4 +1,3 @@
-import styles from './Header.module.css'
 import { useRecoilState } from 'recoil'
 import { modalAuthState } from '@/atoms'
 import AuthModal from '@/components/auth/Modal'
@@ -11,27 +10,27 @@ export const Header = () => {
 
   return (
     <>
-      <div className={styles.logo}>
-        <img width={300} src="/logo.png" alt="logo" />
+      <div className='absolute w-[100px] lg:w-[305px] left-[2%] top-[1%] lg:top-[2%] z-20'>
+        <img width={305} src="/logo.svg" alt="logo" />
       </div>
-      <header className="flex h-16 items-end justify-end bg-black pb-3">
-        <ul className="flex gap-12">
-          <li>
+      <header className="flex h-16 items-center lg:items-end justify-end bg-black pb-0 lg:pb-3">
+        <ul className="hidden md:flex gap-16">
+          <li className='hover:text-gray-300'>
             <a href="#">Trang chủ</a>
           </li>
-          <li>
+          <li className='hover:text-gray-300'>
             <a href="#about">Giới thiệu</a>
           </li>
-          <li>
+          <li className='hover:text-gray-300'>
             <a href="#blog">Blog</a>
           </li>
-          <li>
+          <li className='hover:text-gray-300'>
             <a href="#wifi">Wiki</a>
           </li>
-          <li>
+          <li className='hover:text-gray-300'>
             <a href="#news">Tin tức</a>
           </li>
-          <li>
+          <li className='hover:text-gray-300'>
             {user ? (
               <Link href="/dashboard">Dashboard</Link>
             ) : (
@@ -40,7 +39,15 @@ export const Header = () => {
           </li>
         </ul>
 
-        <div className="relative mx-10 flex flex-shrink-0 cursor-pointer">
+        <div className='lg:hidden'>
+          {user ? (
+                <Link href="/dashboard">Dashboard</Link>
+              ) : (
+                <button onClick={() => setOpen(true)}>Đăng nhập</button>
+              )}
+        </div>
+
+        <div className="relative mr-8 ml-3 lg:mx-10 flex flex-shrink-0 cursor-pointer">
           <img
             src="/images/en.webp"
             width="30"

@@ -2,13 +2,15 @@ import { useEffect, useState } from 'react'
 import { useRecoilState } from 'recoil'
 import { modalAuthState } from '@/atoms'
 import { useAuth } from '@/hooks'
+import { useRouter } from 'next/router'
 import Error from './Error'
 
 const Register = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [open, setOpen] = useRecoilState(modalAuthState)
   const [errors, setErrors] = useState<string[]>([])
-  
+  const router = useRouter()
+
   useEffect(() => {
     if (!open) setTimeout(() => setErrors([]), 300)
   }, [])
@@ -74,6 +76,7 @@ const Register = () => {
             name="referal"
             type="text"
             required
+            value={router.query.ref}
             autoComplete="referal"
             className="block w-full rounded-lg p-2.5 text-center text-base font-semibold text-black-1 focus:outline-none focus:ring-2 focus:ring-gray-300"
             placeholder="Người giới thiệu"

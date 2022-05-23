@@ -258,7 +258,7 @@ const treeData = [
 const TreeList = () => {
   const { data, error, mutate } = useSWR('/users/referal', {
     dedupingInterval: 60 * 60 * 1000,
-    revalidateOnFocus: false
+    revalidateOnFocus: false,
   })
 
   return (
@@ -269,7 +269,13 @@ const TreeList = () => {
           <div className="mt-8">
             <div className="-mx-4- mt-3 flex flex-wrap justify-center">
               <div className="col-lg-8 rounded-xl bg-gray-700 py-6 text-left text-white">
-                { data?.length ? <Tree data={data} /> : <h2 className='px-6 text-center text-lg font-semibold'>Chưa có</h2>}
+                {data?.length ? (
+                  <Tree data={data} />
+                ) : (
+                  <h2 className="px-6 text-center text-lg font-semibold">
+                    Chưa có
+                  </h2>
+                )}
               </div>
             </div>
           </div>

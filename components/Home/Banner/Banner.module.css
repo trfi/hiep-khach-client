@@ -5,12 +5,14 @@
   transform: translate(-50%, -50%);
   color: #fff;
   font-family: 'Playball', cursive;
+  z-index: 20;
 }
 
-.character {
-  position: absolute;
-  width: 747px;
-  height: 747px;
-  right: 1%;
-  top: 10%;
+@media screen and (max-width: 600px) {
+  .textBanner {
+    left: 50%;
+    bottom: -50px;
+    font-size: 13px;
+    font-weight: 600;
+  }
 }

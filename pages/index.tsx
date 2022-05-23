@@ -12,9 +12,9 @@ const Home: NextPage = () => {
       <Header></Header>
       <main>
         <Banner></Banner>
-        <div className="flex items-center px-20">
+        <div className="flex items-center px-20 pt-20 lg:pt-0">
           <img width={88} src="/images/polygon1.svg" alt="warning" />
-          <div className="flex-col pt-3">
+          <div className="flex-col lg:pt-3 text-sm lg:text-base">
             <p>
               Chơi quá 180 phút một ngày sẽ ảnh hưởng xấu đến sức khỏe !!!{' '}
               <br />
@@ -25,7 +25,7 @@ const Home: NextPage = () => {
         <div className="my-10 flex justify-center">
           <a
             href="#download"
-            className="rounded-xl border-4 border-yellow-1 px-12 py-2 font-airstrike text-2xl leading-10 text-yellow-1 z-30"
+            className="rounded-xl border-4 border-yellow-1 px-8 lg:px-12 py-1.5 lg:py-2 font-airstrike text-2xl leading-10 text-yellow-1 z-30"
           >
             PLAY NOW
           </a>
@@ -40,10 +40,10 @@ const Home: NextPage = () => {
         </h2>
 
         <div className="mb-10 flex items-center">
-          <div className="w-1/2">
-            <img src="/images/game1.png" alt="game1" />
+          <div className="w-1/2 flex justify-center">
+            <img src="/images/character2.svg" alt="character2" />
           </div>
-          <span className="w-1/2 whitespace-pre-line px-10 text-white">
+          <span className="w-1/2 whitespace-pre-line px-10 text-white text-sm lg:text-base">
             Cùng mời thêm nhiều người chơi để hưởng ưu đãi hoa hồng <br />{' '}
             <br />
             Ngoài chơi game kiếm vật phẩm hiếm để trao đổi cho những người cần,

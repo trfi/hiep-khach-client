@@ -60,7 +60,7 @@ export function DashboardLayout({ children }: LayoutProps) {
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul className="menu w-80 overflow-y-auto bg-base-300 p-4 text-base-content">
             {menuItems.map(({ href, title }) => (
-              <li key={title}>
+              <li className='my-[3px]' key={title}>
                 <Link href={href}>
                   <a
                     className={`flex cursor-pointer hover:bg-gray-500 ${

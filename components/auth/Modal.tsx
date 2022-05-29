@@ -37,23 +37,23 @@ const AuthModal = () => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-slate-800 text-slate-200 text-left align-middle shadow-xl transition-all">
                   <button
-                    className="absolute top-1 right-3 text-2xl font-bold text-gray-500"
+                    className="absolute top-2 right-2 text-2xl font-bold text-gray-500 hover:bg-slate-700 rounded-md px-2"
                     onClick={() => setOpen(false)}
                   >
                     ×
                   </button>
                   <Dialog.Title
                     as="h3"
-                    className="my-6 text-center text-xl font-medium leading-6 text-black-1"
+                    className="my-6 text-center text-xl font-medium leading-6"
                   >
                     {isRegister ? 'Đăng ký' : 'Đăng nhập'}
                   </Dialog.Title>
                   {isRegister ? <Register /> : <Login />}
 
                   {isRegister ? (
-                    <div className="my-6 px-4 text-right text-sm text-gray-600">
+                    <div className="my-6 px-4 text-right text-sm text-slate-200">
                       <span className="font-normal">Đã có tài khoản?</span>{' '}
                       <button
                         onClick={() => setIsRegister(false)}
@@ -63,7 +63,7 @@ const AuthModal = () => {
                       </button>
                     </div>
                   ) : (
-                    <div className="my-6 px-4 text-right text-sm text-gray-600">
+                    <div className="my-6 px-4 text-right text-sm text-slate-200">
                       <span className="font-normal">Chưa có tài khoản?</span>{' '}
                       <button
                         onClick={() => setIsRegister(true)}

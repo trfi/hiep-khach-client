@@ -4,4 +4,7 @@ module.exports = {
   publicRuntimeConfig: {
     apiUrl: process.env.API_URL,
   },
+  experimental: {
+    outputStandalone: true,
+  },
 }

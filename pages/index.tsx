@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { Banner, Header, Footer } from '@/components/home'
+import SlideHome from '@/components/home/Slide'
 
 const Home: NextPage = () => {
   return (
@@ -40,8 +41,8 @@ const Home: NextPage = () => {
           </a>
         </div>
 
-        <div className="mb-10 flex justify-center">
-          <img src="/images/slides/slide1.png" width={711} alt="slide1" />
+        <div className="max-w-screen-2xl mx-auto my-32 px-8">
+          <SlideHome />
         </div>
 
         <h2 className="mb-10 text-center text-2xl text-yellow-1">

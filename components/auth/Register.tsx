@@ -54,7 +54,7 @@ const Register = () => {
             type="text"
             required
             autoComplete="username"
-            className="block w-full rounded-lg p-2.5 text-center text-base font-semibold text-black-1 focus:outline-none focus:ring-2 focus:ring-gray-300"
+            className="input input-bordered w-full text-center text-base"
             placeholder="Tài khoản"
           />
           <input
@@ -63,7 +63,7 @@ const Register = () => {
             minLength={6}
             required
             autoComplete="current-password"
-            className="block w-full rounded-lg p-2.5 text-center text-base font-semibold text-black-1 focus:outline-none focus:ring-2 focus:ring-gray-300"
+            className="input input-bordered w-full text-center text-base"
             placeholder="Mật khẩu"
           />
           <input
@@ -72,7 +72,7 @@ const Register = () => {
             minLength={6}
             required
             autoComplete="current-password"
-            className="block w-full rounded-lg p-2.5 text-center text-base font-semibold text-black-1 focus:outline-none focus:ring-2 focus:ring-gray-300"
+            className="input input-bordered w-full text-center text-base"
             placeholder="Nhập lại mật khẩu"
           />
           <input
@@ -81,7 +81,7 @@ const Register = () => {
             required
             value={router.query.ref}
             autoComplete="referal"
-            className="block w-full rounded-lg p-2.5 text-center text-base font-semibold text-black-1 focus:outline-none focus:ring-2 focus:ring-gray-300"
+            className="input input-bordered w-full text-center text-base"
             placeholder="Người giới thiệu"
           />
         </div>
@@ -91,7 +91,7 @@ const Register = () => {
             type="submit"
             name="btnLogin"
             disabled={isLoading}
-            className="inline-flex w-full justify-center rounded-3xl border border-transparent bg-gray-500 px-4 py-3 text-base font-medium text-white hover:bg-gray-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500 focus-visible:ring-offset-2 disabled:bg-[#cfd088]"
+            className="btn w-full rounded-2xl border border-transparent bg-gray-500 px-4 py-3 text-base font-medium text-white hover:bg-gray-400 disabled:bg-[#cfd088]"
           >
             Đăng ký
           </button>

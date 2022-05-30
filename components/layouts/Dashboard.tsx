@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { LayoutProps } from '@/models'
 import { useAuth } from '@/hooks'
+import { Auth } from '../common'
 
 export function DashboardLayout({ children }: LayoutProps) {
   const router = useRouter()
@@ -27,10 +28,10 @@ export function DashboardLayout({ children }: LayoutProps) {
   ]
 
   return (
-    <>
-      <header onClick={logout} className='flex bg-slate-800 w-full px-6 py-2 justify-end items-center space-x-4 font-semibold'>
+    <Auth>
+      <header className='flex bg-slate-800 w-full px-6 py-2 justify-end items-center space-x-4 font-semibold'>
         <h1>{ user && user.username }</h1>
-        <button className='px-5 py-1.5 bg-slate-600 font-semibold rounded-lg text-white'>Logout</button>
+        <button onClick={logout} className='px-5 py-1.5 bg-slate-600 font-semibold rounded-lg text-white'>Logout</button>
       </header>
 
       <div className="drawer drawer-mobile h-[calc(100vh-52px)]">
@@ -75,6 +76,6 @@ export function DashboardLayout({ children }: LayoutProps) {
           </ul>
         </div>
       </div>
-    </>
+    </Auth>
   )
 }

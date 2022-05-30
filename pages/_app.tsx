@@ -6,6 +6,8 @@ import axiosClient from '@/api/axios-client'
 import { AppPropsWithLayout } from '../models'
 import { Toaster } from 'react-hot-toast'
 import { config, library } from '@fortawesome/fontawesome-svg-core'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 config.autoAddCss = false

@@ -4,6 +4,7 @@ import { modalAuthState } from '@/atoms'
 import { useAuth } from '@/hooks'
 import { useRouter } from 'next/router'
 import Error from './Error'
+import toast from 'react-hot-toast'
 
 const Register = () => {
   const [isLoading, setIsLoading] = useState(false)
@@ -16,7 +17,7 @@ const Register = () => {
   }, [])
 
   const { register } = useAuth(
-    { middleware: 'guest' },
+    {},
     {
       revalidateOnMount: false,
     }
@@ -34,6 +35,8 @@ const Register = () => {
         referal: e.target.referal.value,
       })
       setOpen(false)
+      toast.loading('Đăng ký thành công. Vui lòng đợi', { duration: 2000 })
+      setTimeout(() => router.push('/dashboard'), 2000)
     } catch (err: any) {
       console.log(err)
       setErrors(typeof err.message == 'string' ? [err.message] : err.message)

@@ -4,22 +4,25 @@ import { NextPageWithLayout } from '@/models'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCopy } from '@fortawesome/free-solid-svg-icons'
 import { useAuth } from '@/hooks'
+import toast, { Toaster } from 'react-hot-toast'
 
 const Referral: NextPageWithLayout = () => {
   const { user } = useAuth()
 
-  const refLink = `${typeof window !== "undefined" && window.location.href}/?ref=${ user && user.username }`
+  const refLink = `${
+    typeof window !== 'undefined' && window.location.href
+  }/?ref=${user && user.username}`
 
   function onCopyHandler() {
     navigator.clipboard.writeText(refLink)
-    alert('Copy thành công')
+    toast.success('Copy thành công')
   }
 
   return (
     <div className="w-full">
       <h1>Referral</h1>
-      <div className='my-8 flex flex-col items-center'>
-        <h2 className='text-xl font-semibold'>Your referal link:</h2> <br />
+      <div className="my-8 flex flex-col items-center">
+        <h2 className="text-xl font-semibold">Your referal link:</h2> <br />
         <div className="form-control w-3/5">
           <div className="input-group">
             <input

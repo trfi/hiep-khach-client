@@ -4,6 +4,7 @@ import { EmptyLayout } from '@/components/layouts'
 import { SWRConfig } from 'swr'
 import axiosClient from '@/api/axios-client'
 import { AppPropsWithLayout } from '../models'
+import { Toaster } from 'react-hot-toast'
 import { config, library } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { fas } from '@fortawesome/free-solid-svg-icons'
@@ -19,6 +20,15 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
       <SWRConfig value={{ fetcher: (url) => axiosClient.get(url), shouldRetryOnError: false }}>
 					<Layout>
 						<Component {...pageProps} />
+            <Toaster
+              toastOptions={{
+                className: '',
+                style: {
+                  background: '#374151',
+                  color: '#fff',
+                },
+              }}
+            />
 					</Layout>
 				</SWRConfig>
     </RecoilRoot>

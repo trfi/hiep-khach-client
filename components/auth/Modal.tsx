@@ -3,7 +3,7 @@ import { modalAuthState } from '@/atoms'
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useEffect, useState } from 'react'
 import Login from './Login'
-import Register from './Register'
+import Signup from './Signup'
 
 const AuthModal = () => {
   const [isLoading, setIsLoading] = useState(false)
@@ -50,7 +50,7 @@ const AuthModal = () => {
                   >
                     {isRegister ? 'Đăng ký' : 'Đăng nhập'}
                   </Dialog.Title>
-                  {isRegister ? <Register /> : <Login />}
+                  {isRegister ? <Signup /> : <Login />}
 
                   {isRegister ? (
                     <div className="my-6 px-4 text-right text-sm text-slate-200">

@@ -272,7 +272,7 @@ const TreeList = () => {
                   <Tree data={data} />
                 ) : (
                   <h2 className="px-6 text-center text-lg font-semibold">
-                    Chưa có
+                    Not yet
                   </h2>
                 )}
               </div>

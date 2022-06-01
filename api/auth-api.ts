@@ -6,8 +6,8 @@ export const authApi = {
 		return axiosClient.post('/auth/login', payload)
 	},
 
-	register(payload: any) {
-		return axiosClient.post('/auth/register', payload)
+	signup(payload: any) {
+		return axiosClient.post('/auth/signup', payload)
 	},
 
 	logout() {

@@ -23,7 +23,7 @@ export function useAuth(
     data: user,
     error,
     mutate,
-  } = useSWR('/users', {
+  } = useSWR('/auth', {
     dedupingInterval: 60 * 60 * 1000, // 1hr
     revalidateOnFocus: false,
     ...options,
@@ -39,11 +39,11 @@ export function useAuth(
     await mutate()
   }
 
-  async function register(
-    loginData: { username: string; password: string, confirmPassword: string, referal: string }
+  async function signup(
+    loginData: { username: string; password: string, confirmPassword: string, referral: string }
   ) {
     await authApi
-      .register(loginData)
+      .signup(loginData)
 
     await mutate()
   }
@@ -64,7 +64,7 @@ export function useAuth(
     user: user as UserInfo,
     error,
     login,
-    register,
+    signup,
     logout,
     isLoading,
     firstLoading,

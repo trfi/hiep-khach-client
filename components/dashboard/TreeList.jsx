@@ -256,9 +256,8 @@ const treeData = [
 ]
 
 const TreeList = () => {
-  const { data, error, mutate } = useSWR('/users/referal', {
+  const { data, error, mutate } = useSWR('/users/referral', {
     dedupingInterval: 60 * 60 * 1000,
-    revalidateOnFocus: false,
   })
 
   return (

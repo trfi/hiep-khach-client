@@ -12,9 +12,14 @@
   background-color: #2c3647;
 }
 
-/* .table-zebra tbody tr:nth-child(even) th, .table-zebra tbody tr:nth-child(even) td {
-  background-color: #253042;
-} */
+.card {
+  overflow: hidden;
+  border-radius: var(--rounded-box, 1rem);
+}
+.card:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
 
 html {
   color: #fff;

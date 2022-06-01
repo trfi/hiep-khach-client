@@ -31,7 +31,6 @@ const Login = () => {
       })
       setOpen(false)
     } catch (err: any) {
-      console.log(err)
       setErrors(err && typeof err.message == 'string' ? [err.message] : err.message)
     }
     setIsLoading(false)

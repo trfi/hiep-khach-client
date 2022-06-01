@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
   return (
     <RecoilRoot>
-      <SWRConfig value={{ fetcher: (url) => axiosClient.get(url), shouldRetryOnError: false }}>
+      <SWRConfig value={{ fetcher: (url) => axiosClient.get(url), shouldRetryOnError: false, dedupingInterval: 60 * 60 * 1000 }}>
 					<Layout>
 						<Component {...pageProps} />
             <Toaster

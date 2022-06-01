@@ -29,20 +29,16 @@ const Wallet: NextPageWithLayout = () => {
 
   return (
     <div className="p-10 flex flex-col w-full space-y-8">
-      <h1 className="text-2xl">Deposit</h1><br />
+      <h1 className="text-2xl">My wallet</h1><br />
 
-      <div className="stats bg-primary text-primary-content">
-        <div className="stat">
-          <div className="stat-title">Account balance</div>
-          <div className="stat-value mt-3">${ data?.balance }</div>
-        </div>
+      <div className="stats bg-primary text-primary-content py-4">
         <div className="stat">
           <div className="stat-title">Commission balance</div>
-          <div className="stat-value mt-3">${ data?.commissionBalance }</div>
+          <div className="stat-value mt-3 text-5xl">${ data?.commissionBalance }</div>
         </div>
       </div>
 
-        <form onSubmit={handlerSubmitDeposit} className="flex items-end w-full">
+        {/* <form onSubmit={handlerSubmitDeposit} className="flex items-end w-full">
           <div className="form-control w-full max-w-md">
             <label className="label">
               <span className="label-text">Enter amount</span>
@@ -53,7 +49,7 @@ const Wallet: NextPageWithLayout = () => {
             </label>
           </div>
           <button className="btn btn-primary ml-4">Deposit</button>
-        </form>
+        </form> */}
     </div>
   )
 }

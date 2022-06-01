@@ -35,10 +35,9 @@ const Signup = () => {
         referral: e.target.referral.value,
       })
       setOpen(false)
-      toast.loading('Đăng ký thành công. Vui lòng đợi', { duration: 2000 })
-      setTimeout(() => router.push('/dashboard'), 2000)
+      toast.loading('Đăng ký thành công. Vui lòng đợi', { duration: 1500 })
+      setTimeout(() => router.push('/dashboard'), 1500)
     } catch (err: any) {
-      console.log(err)
       setErrors(typeof err.message == 'string' ? [err.message] : err.message)
     }
     setIsLoading(false)

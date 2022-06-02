@@ -8,14 +8,14 @@ const ExchangeHistory: NextPageWithLayout = () => {
   })
 
   return (
-    <div className="flex w-full overflow-x-auto p-10">
+    <div className="flex w-full overflow-x-auto">
       <table className="table-zebra table w-full bottom-1">
         <thead>
           <tr>
             <th></th>
-            <th>Commission Pay</th>
             <th>Username</th>
             <th>Ref level</th>
+            <th>Commission Pay</th>
             <th>Package Price</th>
             <th>Percent</th>
             <th>Time</th>
@@ -25,12 +25,12 @@ const ExchangeHistory: NextPageWithLayout = () => {
           {data?.map((h: { packPrice: string, commissionPercent: string, refLevel: number, commissionPay: string, buyUsername: string, createdAt: string }, idx: number) => (
             <tr key={idx}>
               <th>{idx + 1}</th>
-              <td>{h.commissionPay}</td>
               <td>{h.buyUsername}</td>
-              <td>{h.refLevel}</td>
-              <td>{h.packPrice}</td>
-              <td>{h.commissionPercent}</td>
-              <td>{new Date(h.createdAt).toLocaleString()}</td>
+              <td><div className='badge badge-primary'>{h.refLevel}</div></td>
+              <td><div className='badge badge-lg badge-outline badge-accent'>{h.commissionPay} $</div></td>
+              <td><div className='badge badge-outline'>{h.packPrice} $</div></td>
+              <td><div className='badge badge-outline'>{h.commissionPercent}%</div></td>
+              <td><div className='badge badge-md'>{new Date(h.createdAt).toLocaleString()}</div></td>
             </tr>
           ))}
         </tbody>

@@ -48,7 +48,7 @@ const Exchange: NextPageWithLayout = () => {
   }
 
   return (
-    <div className="w-full py-5 px-5 lg:px-10">
+    <div className="w-full">
       <div className="text-center">
         <h1 className="text-4xl font-bold">BUY KNB</h1>
       </div>

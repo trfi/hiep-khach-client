@@ -8,7 +8,7 @@ const DepositHistory: NextPageWithLayout = () => {
   })
 
   return (
-    <div className="flex w-full overflow-x-auto p-10">
+    <div className="flex w-full overflow-x-auto">
       <table className="table-zebra table w-full bottom-1">
         <thead>
           <tr>

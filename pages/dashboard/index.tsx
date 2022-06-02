@@ -10,7 +10,7 @@ const Dashboard: NextPageWithLayout = () => {
   })
 
   return (
-    <div className='flex flex-col w-full items-center justify-center gap-4 mt-10'>
+    <div className='flex flex-col w-full items-center justify-center gap-8'>
 
       <div className="stats bg-primary text-primary-content">
         <div className="stat">

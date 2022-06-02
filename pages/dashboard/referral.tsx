@@ -20,7 +20,7 @@ const Referral: NextPageWithLayout = () => {
   }
 
   return (
-    <div className="w-full p-10">
+    <div className="w-full">
       <div className="my-8 flex flex-col items-center">
         <h2 className="text-xl font-semibold">Your referral link:</h2> <br />
         <div className="form-control w-3/5">

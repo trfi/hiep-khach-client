@@ -16,12 +16,12 @@ const Tree = ({ data = [] }) => {
 const TreeNode = ({ node }) => {
   const [childVisible, setChildVisiblity] = useState(false);
 
-  const hasChild = node.children ? true : false;
-
+  const hasChild = node.children.length ? true : false;
+  console.log(node);
   return (
     <li className="d-tree-node border-0 text-white">
-      <div className="flex" onClick={(e) => setChildVisiblity((v) => !v)}>
-        {hasChild && (
+      <div className="flex my-3" onClick={(e) => setChildVisiblity((v) => !v)}>
+        {hasChild ? 
           <div
             className={`inline d-tree-toggler ${
               childVisible ? "active" : ""
@@ -29,11 +29,12 @@ const TreeNode = ({ node }) => {
           >
             <FontAwesomeIcon icon="fa-caret-right" />
           </div>
-        )}
+        : <div className="mr-2"></div>}
 
-        <div className="basis-0 grow max-w-full px-3">
+        <div className="basis-0 grow max-w-full px-3 space-x-2">
           {/* <i className={`mr-1 ${node.icon}`}> </i> */}
-          {node.username}
+          <FontAwesomeIcon icon="fa-user" />
+          <span>{node.username}</span>
         </div>
       </div>
 

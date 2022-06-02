@@ -8,7 +8,7 @@ const DepositHistory: NextPageWithLayout = () => {
   })
 
   return (
-    <div className="flex w-full overflow-x-auto p-10">
+    <div className="flex w-full overflow-x-auto">
       <table className="table-zebra table w-full bottom-1">
         <thead>
           <tr>
@@ -21,8 +21,8 @@ const DepositHistory: NextPageWithLayout = () => {
           {data?.map((h: { amount: string, createdAt: string }, idx: number) => (
             <tr>
               <th>{idx + 1}</th>
-              <td>{h.amount}</td>
-              <td>{new Date(h.createdAt).toLocaleString()}</td>
+              <td><div className='badge badge-lg badge-outline badge-accent'>{h.amount} $</div></td>
+              <td><div className='badge badge-md'>{new Date(h.createdAt).toLocaleString()}</div></td>
             </tr>
           ))}
         </tbody>

@@ -48,7 +48,7 @@ export function DashboardLayout({ children }: LayoutProps) {
 
       <div className="drawer drawer-mobile h-[calc(100vh-52px)]">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col items-start justify-start p-6">
+        <div className="drawer-content flex flex-col items-start justify-start p-6 lg:p-16">
           {children}
           <label
             htmlFor="my-drawer-2"

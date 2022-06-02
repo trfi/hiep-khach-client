@@ -8,7 +8,7 @@ const ExchangeHistory: NextPageWithLayout = () => {
   })
 
   return (
-    <div className="flex w-full overflow-x-auto p-10">
+    <div className="flex w-full overflow-x-auto">
       <table className="table-zebra table w-full bottom-1">
         <thead>
           <tr>
@@ -23,10 +23,10 @@ const ExchangeHistory: NextPageWithLayout = () => {
           {data?.map((h: { packPrice: string, character: string, server: string, createdAt: string }, idx: number) => (
             <tr key={idx}>
               <th>{idx + 1}</th>
-              <td>{h.packPrice}</td>
+              <td><div className='badge badge-lg badge-outline badge-accent'>{h.packPrice} $</div></td>
               <td>{h.server}</td>
               <td>{h.character}</td>
-              <td>{new Date(h.createdAt).toLocaleString()}</td>
+              <td><div className='badge badge-md'>{new Date(h.createdAt).toLocaleString()}</div></td>
             </tr>
           ))}
         </tbody>

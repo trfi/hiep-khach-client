@@ -91,7 +91,7 @@ const Exchange: NextPageWithLayout = () => {
       </div>
 
       <div className="mx-auto mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 xl:max-w-6xl">
-        {Object.values(knbPackages)?.map((pack: any) => (
+        {knbPackages && Object.values(knbPackages).map((pack: any) => (
           <div
             className="card bg-neutral text-slate-100 shadow-xl"
             key={pack.id}

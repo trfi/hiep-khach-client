@@ -18,6 +18,10 @@ export function DashboardLayout({ children }: LayoutProps) {
       title: 'Referral',
     },
     {
+      href: '/dashboard/commission-history',
+      title: 'Commission History',
+    },
+    {
       href: '/dashboard/wallet',
       title: 'Wallet',
     },

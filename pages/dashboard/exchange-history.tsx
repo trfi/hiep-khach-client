@@ -16,7 +16,7 @@ const ExchangeHistory: NextPageWithLayout = () => {
             <th>Package Price</th>
             <th>Server</th>
             <th>Character</th>
-            <th>Deposit time</th>
+            <th>Exchange time</th>
           </tr>
         </thead>
         <tbody>

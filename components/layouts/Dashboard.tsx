@@ -22,12 +22,16 @@ export function DashboardLayout({ children }: LayoutProps) {
       title: 'Wallet',
     },
     {
+      href: '/dashboard/deposit-history',
+      title: 'Deposit History',
+    },
+    {
       href: '/dashboard/exchange',
       title: 'Exchange',
     },
     {
-      href: '/dashboard/deposit-history',
-      title: 'Deposit History',
+      href: '/dashboard/exchange-history',
+      title: 'Exchange History',
     },
   ]
 

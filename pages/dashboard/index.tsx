@@ -14,30 +14,6 @@ const Dashboard: NextPageWithLayout = () => {
 
       <div className="stats bg-primary text-primary-content">
         <div className="stat">
-          <div className="stat-title">Commission Balance</div>
-          <div className="stat-value">${data?.commissionBalance}</div>
-          <div className="stat-actions">
-            <button onClick={() => toast('Comming soon')} className="btn btn-success btn-sm">Withdrawal</button>
-          </div>
-        </div>
-        <div className="stat">
-          <div className="stat-title">Total Deposit</div>
-          <div className="stat-value">${data?.totalDeposit}</div>
-          <div className="stat-actions">
-            <button className="btn btn-sm"><Link href='/dashboard/deposit-history'>HISTORY</Link></button>
-          </div>
-        </div>
-        <div className="stat">
-          <div className="stat-title">Total Withdrawal</div>
-          <div className="stat-value">${data?.totalWithdrawal}</div>
-          <div className="stat-actions">
-            <button onClick={() => toast('Comming soon')} className="btn btn-sm">HISTORY</button>
-          </div>
-        </div>
-      </div>
-      
-      <div className="stats bg-primary text-primary-content">
-        <div className="stat">
           <div className="stat-figure text-info">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -98,6 +74,38 @@ const Dashboard: NextPageWithLayout = () => {
           <div className="stat-title">New Registers</div>
           <div className="stat-value">430</div>
           <div className="stat-desc">↘︎ 90 (14%)</div>
+        </div>
+      </div>
+
+      
+      <div className="stats bg-primary text-primary-content">
+        <div className="stat">
+          <div className="stat-title">Account Balance</div>
+          <div className="stat-value">${data?.balance}</div>
+          <div className="stat-actions">
+            <button className="btn btn-success btn-sm"><Link href='/dashboard/wallet'>Deposit</Link></button>
+          </div>
+        </div>
+        <div className="stat">
+          <div className="stat-title">Commission Balance</div>
+          <div className="stat-value">${data?.commissionBalance}</div>
+          <div className="stat-actions">
+            <button onClick={() => toast('Comming soon')} className="btn btn-success btn-sm">Withdrawal</button>
+          </div>
+        </div>
+        <div className="stat">
+          <div className="stat-title">Total Deposit</div>
+          <div className="stat-value">${data?.totalDeposit}</div>
+          <div className="stat-actions">
+            <button className="btn btn-sm"><Link href='/dashboard/deposit-history'>HISTORY</Link></button>
+          </div>
+        </div>
+        <div className="stat">
+          <div className="stat-title">Total Withdrawal</div>
+          <div className="stat-value">${data?.totalWithdrawal}</div>
+          <div className="stat-actions">
+            <button onClick={() => toast('Comming soon')} className="btn btn-sm">HISTORY</button>
+          </div>
         </div>
       </div>
 

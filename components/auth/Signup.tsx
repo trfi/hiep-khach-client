@@ -5,14 +5,17 @@ import { useAuth } from '@/hooks'
 import { useRouter } from 'next/router'
 import Error from './Error'
 import toast from 'react-hot-toast'
+import { getCookie } from '@/utils/cookies'
 
 const Signup = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [open, setOpen] = useRecoilState(modalAuthState)
   const [errors, setErrors] = useState<string[]>([])
+  const [refId, setRefId] = useState('')
   const router = useRouter()
 
   useEffect(() => {
+    setRefId(getCookie('ref'))
     if (!open) setTimeout(() => setErrors([]), 300)
   }, [])
 
@@ -78,7 +81,7 @@ const Signup = () => {
             name="referral"
             type="text"
             required
-            value={router.query.ref}
+            defaultValue={refId}
             autoComplete="referral"
             className="input input-bordered w-full text-center text-base"
             placeholder="Người giới thiệu"

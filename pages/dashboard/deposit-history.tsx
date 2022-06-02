@@ -14,18 +14,14 @@ const DepositHistory: NextPageWithLayout = () => {
           <tr>
             <th></th>
             <th>Amount</th>
-            <th>Server</th>
-            <th>Character</th>
             <th>Deposit time</th>
           </tr>
         </thead>
         <tbody>
-          {data?.map((h: { amount: string, createdAt: string, character: string, server: string }, idx: number) => (
+          {data?.map((h: { amount: string, createdAt: string }, idx: number) => (
             <tr>
               <th>{idx + 1}</th>
               <td>{h.amount}</td>
-              <td>{h.server}</td>
-              <td>{h.character}</td>
               <td>{new Date(h.createdAt).toLocaleString()}</td>
             </tr>
           ))}

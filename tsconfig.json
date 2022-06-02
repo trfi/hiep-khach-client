@@ -19,6 +19,7 @@
 			"@/*": ["./*"],
 			"@/api": ["api/index.ts"],
 			"@/api/*": ["api/*"],
+			"@/utils/*": ["./utils/*"],
 			"@/models/*": ["./models/*"],
 			"@/hooks/*": ["./hooks/*"],
 			"@/components/*": ["./components/*"],

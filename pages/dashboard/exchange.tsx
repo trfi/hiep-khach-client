@@ -1,40 +1,17 @@
 import axiosClient from '@/api/axios-client'
 import { DashboardLayout } from '@/components/layouts'
 import { NextPageWithLayout } from '@/models'
-import { AxiosResponse } from 'axios'
-import { SetStateAction, useState } from 'react'
+import { useState } from 'react'
 import toast from 'react-hot-toast'
 import useSWR from 'swr'
-
-const packages = [
-  {
-    id: '1',
-    price: 100,
-    knb: 100000,
-  },
-  {
-    id: '2',
-    price: 200,
-    knb: 200000,
-  },
-  {
-    id: '3',
-    price: 500,
-    knb: 500000,
-  },
-  {
-    id: '4',
-    price: 1000,
-    knb: 1000000,
-  },
-]
 
 const Exchange: NextPageWithLayout = () => {
   const [server, setServer] = useState(0)
   const [roles, setRoles] = useState<Array<any>>([])
-  const { data: servers, mutate: serverMutate } = useSWR('/game/servers')
+  const { data: servers } = useSWR('/game/servers')
+  const { data: knbPackages } = useSWR('/game/knbpack')
 
-  const depositHistory = useSWR('/history/deposit')
+  const exchangeHistory = useSWR('/history/exchange')
   const userBalance = useSWR('/wallet/balance')
 
   const handleChangeServer = (e: any) => {
@@ -54,16 +31,16 @@ const Exchange: NextPageWithLayout = () => {
   async function buyHandle(packId: string) {
     if (!role) return toast.error('Please select character')
     try {
-      const character = roles.find(r => r.id == role).name
+      const character = roles.find((r) => r.id == role).name
       const serverName = servers.find((s: any) => s.id == server).name
-      await axiosClient.post('/wallet/deposit', {
+      await axiosClient.post('/game/buyknbpack', {
         packId,
         server: serverName,
         role,
-        character
+        character,
       })
-      toast.success('Buy success')
-      depositHistory.mutate()
+      toast.success('Buy success, check your mail in game')
+      exchangeHistory.mutate()
       userBalance.mutate()
     } catch (e: any) {
       toast.error(e.message)
@@ -71,12 +48,12 @@ const Exchange: NextPageWithLayout = () => {
   }
 
   return (
-    <div className="w-full px-5 py-10 lg:px-10">
+    <div className="w-full py-5 px-5 lg:px-10">
       <div className="text-center">
         <h1 className="text-4xl font-bold">BUY KNB</h1>
       </div>
 
-      <div className="mt-12 flex flex-col items-center gap-6">
+      <div className="mt-6 flex flex-col items-center gap-6">
         <select
           onChange={handleChangeServer}
           className="select select-primary w-full max-w-xs"
@@ -107,14 +84,14 @@ const Exchange: NextPageWithLayout = () => {
             ))
           ) : server == 0 ? (
             <option disabled>Choose server</option>
-          ): (
+          ) : (
             <option disabled>Character not created yet</option>
-          ) }
+          )}
         </select>
       </div>
 
-      <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 xl:max-w-6xl mx-auto">
-        {packages.map((pack) => (
+      <div className="mx-auto mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 xl:max-w-6xl">
+        {Object.values(knbPackages)?.map((pack: any) => (
           <div
             className="card bg-neutral text-slate-100 shadow-xl"
             key={pack.id}

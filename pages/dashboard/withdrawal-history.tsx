@@ -19,7 +19,7 @@ const DepositHistory: NextPageWithLayout = () => {
         </thead>
         <tbody>
           {data?.map((h: { amount: string, createdAt: string }, idx: number) => (
-            <tr>
+            <tr key={idx}>
               <th>{idx + 1}</th>
               <td>{h.amount}</td>
               <td>{new Date(h.createdAt).toLocaleString()}</td>

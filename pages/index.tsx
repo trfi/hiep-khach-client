@@ -2,8 +2,16 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import { Banner, Header, Footer } from '@/components/home'
 import SlideHome from '@/components/home/Slide'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 
 const Home: NextPage = () => {
+  const router = useRouter()
+
+  useEffect(() => {
+    if (router.query.ref) document.cookie = `ref=${router.query.ref}`
+  }, [router])
+
   return (
     <>
       <Head>

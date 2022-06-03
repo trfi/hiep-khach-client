@@ -1,17 +1,32 @@
 import axiosClient from "@/api/axios-client"
 import { DashboardLayout } from "@/components/layouts"
 import { NextPageWithLayout } from "@/models"
+import getConfig from "next/config"
 import Link from "next/link"
 import { useState } from "react"
 import toast from "react-hot-toast"
 import useSWR from "swr"
+const { publicRuntimeConfig } = getConfig();
 
 const Wallet: NextPageWithLayout = () => {
   const [isDeposting, setIsDeposting] = useState(false)
+  const [payUrl, setPayUrl] = useState('')
+  const [payAmount, setPayAmount] = useState(50)
+  const [payCurrency, setPayCurrency] = useState('usdtbsc')
 
   const { data, mutate } = useSWR('/wallet/balance', {
     dedupingInterval: 60 * 1000
   })
+
+  function handleChangePayAmount(e: any) {
+    setPayAmount(e.target.value)
+    setPayUrl(`${publicRuntimeConfig.apiUrl}/wallet/payment?priceAmount=${e.target.value}&payCurrency=${payCurrency}`)
+  }
+
+  function handleChangePayCurrency(e: any) {
+    setPayCurrency(e.target.value)
+    setPayUrl(`${publicRuntimeConfig.apiUrl}/wallet/payment?priceAmount=${payAmount}&payCurrency=${e.target.value}`)
+  }
 
   // const depositHistory = useSWR('/history/deposit')
 
@@ -34,19 +49,21 @@ const Wallet: NextPageWithLayout = () => {
   async function handlerSubmitDeposit(e: any) {
     e.preventDefault()
     setIsDeposting(true)
-    const toastLoading = toast.loading('Waiting for payment')
+    toast.loading('Waiting for payment', { duration: 2000 })
     try {
       const result: { invoice_url: string } = await axiosClient.post(
         '/wallet/invoice',
         {
           priceAmount: +e.target.amount.value,
-          payCurrency: 'usdtbsc',
+          payCurrency,
         }
       )
-      window.location.href = result.invoice_url
+      setPayUrl(result.invoice_url)
+      document.getElementById('deposit')?.click()
+      // window.location.href = result.invoice_url
     } catch (e: any) {
       toast.error(e.message)
-      toast.dismiss(toastLoading)
+      // toast.dismiss(toastLoading)
       setIsDeposting(false)
     }
   }
@@ -74,16 +91,33 @@ const Wallet: NextPageWithLayout = () => {
       </div>
 
         <form onSubmit={handlerSubmitDeposit} className="flex items-end w-full">
-          <div className="form-control w-full max-w-md">
-            <label className="label">
-              <span className="label-text">Enter amount. Min 50</span>
-            </label>
-            <label className="input-group">
-              <input type="text" name="amount" placeholder="50" defaultValue={50} className="input input-bordered w-full input-success" required />
-              <span>USD</span>
-            </label>
+          <div className="flex w-full gap-4">
+            <div className="w-1/4">
+              <label className="label">
+                <span className="label-text">Enter amount. Min 50</span>
+              </label>
+              <label className="input-group">
+                <input onChange={handleChangePayAmount} type="number" name="amount" defaultValue={payAmount} className="input input-bordered w-full input-success" min={50} max={1000000} required />
+                <span>USD</span>
+              </label>
+            </div>
+
+            <div className="w-1/6">
+              <label className="label">
+                <span className="label-text">Select currency</span>
+              </label>
+              <select onChange={handleChangePayCurrency} defaultValue="usdtbsc" className="select select-primary w-full">
+                <option value='usdtbsc'>USDT BSC</option>
+                <option value='usdt'>USDT</option>
+                <option value='busd'>BUSD</option>
+                <option value='bnb'>BNB</option>
+                <option value='btc'>BTC</option>
+              </select>
+            </div>
+            
+            <button className="btn btn-accent mt-8 w-36">Deposit</button>
+            <a id="deposit" target="_blank" href={payUrl} rel="noopener noreferrer" className="btn btn-accent w-36 mx-auto hidden">Deposit</a>
           </div>
-          <button disabled={isDeposting} className="btn btn-accent ml-4">Deposit</button>
         </form>
     </div>
   )

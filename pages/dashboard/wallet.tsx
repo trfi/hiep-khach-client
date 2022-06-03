@@ -90,9 +90,9 @@ const Wallet: NextPageWithLayout = () => {
         </div>
       </div>
 
-        <form onSubmit={handlerSubmitDeposit} className="flex items-end w-full">
-          <div className="flex w-full gap-4">
-            <div className="w-1/4">
+        <form onSubmit={handlerSubmitDeposit} className="flex w-full">
+          <div className="flex w-full flex-col lg:flex-row gap-4">
+            <div className="w-full lg:w-1/4">
               <label className="label">
                 <span className="label-text">Enter amount. Min 50</span>
               </label>
@@ -102,7 +102,7 @@ const Wallet: NextPageWithLayout = () => {
               </label>
             </div>
 
-            <div className="w-1/6">
+            <div className="w-full lg:w-1/6">
               <label className="label">
                 <span className="label-text">Select currency</span>
               </label>
@@ -115,7 +115,7 @@ const Wallet: NextPageWithLayout = () => {
               </select>
             </div>
             
-            <button className="btn btn-accent mt-8 w-36">Deposit</button>
+            <button className="btn btn-accent self-center mt-8 w-36">Deposit</button>
             <a id="deposit" target="_blank" href={payUrl} rel="noopener noreferrer" className="btn btn-accent w-36 mx-auto hidden">Deposit</a>
           </div>
         </form>

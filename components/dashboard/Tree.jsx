@@ -17,7 +17,6 @@ const TreeNode = ({ node }) => {
   const [childVisible, setChildVisiblity] = useState(false);
 
   const hasChild = node.children.length ? true : false;
-  console.log(node);
   return (
     <li className="d-tree-node border-0 text-white">
       <div className="flex my-3" onClick={(e) => setChildVisiblity((v) => !v)}>

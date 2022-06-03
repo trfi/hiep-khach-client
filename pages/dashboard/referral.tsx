@@ -23,7 +23,7 @@ const Referral: NextPageWithLayout = () => {
     <div className="w-full">
       <div className="my-8 flex flex-col items-center">
         <h2 className="text-xl font-semibold">Your referral link:</h2> <br />
-        <div className="form-control w-3/5">
+        <div className="form-control max-w-xl w-full">
           <div className="input-group">
             <input
               type="text"
@@ -41,12 +41,13 @@ const Referral: NextPageWithLayout = () => {
       
       <div className="mt-10 flex flex-col items-center">
       <Disclosure defaultOpen={false}>
-        <Disclosure.Button className="mx-auto py-4">
+        <Disclosure.Button className="mx-auto mb-6 btn btn-outline btn-success">
           View Refferal Program Benefit
         </Disclosure.Button>
-        <Disclosure.Panel className="">
+        <Disclosure.Panel>
           <img
             className="mx-auto"
+            width={800}
             src="/images/commission-level.jpg"
             alt="Commission"
           />

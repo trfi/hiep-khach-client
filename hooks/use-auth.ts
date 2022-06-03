@@ -5,6 +5,7 @@ import useSWR from 'swr'
 import { PublicConfiguration } from 'swr/dist/types'
 
 interface UserInfo {
+  referralChild: string[],
   username: string
   id: string
 }

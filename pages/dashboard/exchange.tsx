@@ -8,7 +8,7 @@ import useSWR from 'swr'
 const Exchange: NextPageWithLayout = () => {
   const [server, setServer] = useState(0)
   const [roles, setRoles] = useState<Array<any>>([])
-  const { data: servers } = useSWR('/game/servers')
+  const { data: servers, isValidating } = useSWR('/game/servers')
   const { data: knbPackages } = useSWR('/game/knbpack')
 
   const exchangeHistory = useSWR('/history/exchange')
@@ -53,7 +53,7 @@ const Exchange: NextPageWithLayout = () => {
         <h1 className="text-4xl font-bold">BUY KNB</h1>
       </div>
 
-      <div className="mt-6 flex flex-col items-center gap-6">
+      <div className="mt-[4vh] flex flex-col items-center gap-6">
         <select
           onChange={handleChangeServer}
           className="select select-primary w-full max-w-xs"
@@ -90,39 +90,40 @@ const Exchange: NextPageWithLayout = () => {
         </select>
       </div>
 
-      <div className="mx-auto mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 xl:max-w-6xl">
-        {knbPackages && Object.values(knbPackages).map((pack: any) => (
-          <div
-            className="card bg-neutral text-slate-100 shadow-xl"
-            key={pack.id}
-          >
-            <div className="card-body">
-              <h2 className="card-title text-4xl">
-                {pack.price.toLocaleString('en-US', {
-                  style: 'currency',
-                  currency: 'USD',
-                })}
-              </h2>
-              <p>
-                ={' '}
-                {pack.knb
-                  .toLocaleString('vn-VI', {
+      <div className="mx-auto mt-[6vh] grid grid-cols-1 gap-6 md:grid-cols-2 xl:max-w-6xl">
+        {knbPackages &&
+          Object.values(knbPackages).map((pack: any) => (
+            <div
+              className="card bg-neutral text-slate-100 shadow-xl"
+              key={pack.id}
+            >
+              <div className="card-body">
+                <h2 className="card-title text-4xl">
+                  {pack.price.toLocaleString('en-US', {
                     style: 'currency',
-                    currency: 'KNB',
-                  })
-                  .replace(',00', '')}
-              </p>
-              <div className="card-actions justify-end">
-                <button
-                  onClick={() => buyHandle(pack.id)}
-                  className="btn btn-primary"
-                >
-                  Buy Now
-                </button>
+                    currency: 'USD',
+                  })}
+                </h2>
+                <p>
+                  ={' '}
+                  {pack.knb
+                    .toLocaleString('vn-VI', {
+                      style: 'currency',
+                      currency: 'KNB',
+                    })
+                    .replace(',00', '')}
+                </p>
+                <div className="card-actions justify-end">
+                  <button
+                    onClick={() => buyHandle(pack.id)}
+                    className="btn btn-primary"
+                  >
+                    Buy Now
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
     </div>
   )

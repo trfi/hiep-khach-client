@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import { LayoutProps } from '@/models'
 import { useAuth } from '@/hooks'
 import { Auth } from '../common'
+import { Head } from 'next/document'
 
 export function DashboardLayout({ children }: LayoutProps) {
   const router = useRouter()

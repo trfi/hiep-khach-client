@@ -3,16 +3,20 @@ import { DashboardLayout } from '@/components/layouts'
 import { NextPageWithLayout } from '@/models'
 import useSWR from 'swr'
 import toast from 'react-hot-toast'
+import { useAuth } from '@/hooks'
 
 const Dashboard: NextPageWithLayout = () => {
-  const { data, error, mutate } = useSWR('/wallet/balance', {
+  const { data } = useSWR('/wallet/balance', {
     dedupingInterval: 60 * 1000
   })
+  const { user } = useAuth()
+
+  console.log(user);
 
   return (
     <div className='flex flex-col w-full items-center justify-center gap-8'>
 
-      <div className="stats bg-primary text-primary-content">
+      <div className="stats w-full max-w-screen-xl py-4 stats-vertical lg:stats-horizontal bg-primary text-primary-content">
         <div className="stat">
           <div className="stat-figure text-info">
             <svg
@@ -51,8 +55,8 @@ const Dashboard: NextPageWithLayout = () => {
             </svg>
           </div>
           <div className="stat-title">Total Referral</div>
-          <div className="stat-value">0</div>
-          <div className="stat-desc">↗︎ 400 (22%)</div>
+          <div className="stat-value">{user?.referralChild?.length}</div>
+          <div className="stat-desc">↗︎ 112 (22%)</div>
         </div>
 
         <div className="stat">
@@ -72,18 +76,18 @@ const Dashboard: NextPageWithLayout = () => {
             </svg>
           </div>
           <div className="stat-title">New Registers</div>
-          <div className="stat-value">430</div>
+          <div className="stat-value">225</div>
           <div className="stat-desc">↘︎ 90 (14%)</div>
         </div>
       </div>
 
       
-      <div className="stats bg-primary text-primary-content">
+      <div className="stats w-full max-w-screen-xl py-4 stats-vertical lg:stats-horizontal bg-primary text-primary-content">
         <div className="stat">
           <div className="stat-title">Account Balance</div>
           <div className="stat-value">${data?.balance}</div>
           <div className="stat-actions">
-            <button className="btn btn-success btn-sm"><Link href='/dashboard/wallet'>Deposit</Link></button>
+            <Link href='/dashboard/wallet'><button className="btn btn-success btn-sm">Deposit</button></Link>
           </div>
         </div>
         <div className="stat">
@@ -97,7 +101,7 @@ const Dashboard: NextPageWithLayout = () => {
           <div className="stat-title">Total Deposit</div>
           <div className="stat-value">${data?.totalDeposit}</div>
           <div className="stat-actions">
-            <button className="btn btn-sm"><Link href='/dashboard/deposit-history'>HISTORY</Link></button>
+          <Link href='/dashboard/deposit-history'><button className="btn btn-sm">HISTORY</button></Link>
           </div>
         </div>
         <div className="stat">

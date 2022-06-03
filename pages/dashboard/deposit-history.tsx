@@ -3,7 +3,7 @@ import { NextPageWithLayout } from '@/models'
 import useSWR from 'swr'
 
 const DepositHistory: NextPageWithLayout = () => {
-  const { data, error, mutate } = useSWR('/history/deposit', {
+  const { data } = useSWR('/history/deposit', {
     dedupingInterval: 60 * 1000,
   })
 
@@ -12,16 +12,18 @@ const DepositHistory: NextPageWithLayout = () => {
       <table className="table-zebra table w-full bottom-1">
         <thead>
           <tr>
-            <th></th>
+            <th>Payment Id</th>
             <th>Amount</th>
+            <th>Pay Address</th>
             <th>Deposit time</th>
           </tr>
         </thead>
         <tbody>
-          {data?.map((h: { amount: string, createdAt: string }, idx: number) => (
-            <tr>
-              <th>{idx + 1}</th>
+          {data?.map((h: any, idx: number) => (
+            <tr key={idx}>
+              <th>{h.paymentId}</th>
               <td><div className='badge badge-lg badge-outline badge-accent'>{h.amount} $</div></td>
+              <td><div className='text-xs'>{h.payAddress}</div></td>
               <td><div className='badge badge-md'>{new Date(h.createdAt).toLocaleString()}</div></td>
             </tr>
           ))}

@@ -13,7 +13,7 @@ const Wallet: NextPageWithLayout = () => {
   const [payUrl, setPayUrl] = useState('')
   const [payAmount, setPayAmount] = useState(50)
   const [payCurrency, setPayCurrency] = useState('usdtbsc')
-
+  let toastPaying = ''
   const { data, mutate } = useSWR('/wallet/balance', {
     dedupingInterval: 60 * 1000
   })
@@ -45,13 +45,24 @@ const Wallet: NextPageWithLayout = () => {
   //   }
   // }
 
+  async function checkBalance(invoice_id: number) {
+    const i = setInterval(async () => {
+      const result: string = await axiosClient.get(`/wallet/paymentStatus/${invoice_id}`)
+      if (result == 'confirmed') {
+        clearInterval(i)
+        toast.success('Payment success', { id: toastPaying })
+        mutate()
+      }
+    }, 3000)
+  }
+
   
   async function handlerSubmitDeposit(e: any) {
     e.preventDefault()
     setIsDeposting(true)
-    toast.loading('Waiting for payment', { duration: 2000 })
+    toastPaying = toast.loading('Waiting for payment')
     try {
-      const result: { invoice_url: string } = await axiosClient.post(
+      const result: { invoice_url: string, id: number } = await axiosClient.post(
         '/wallet/invoice',
         {
           priceAmount: +e.target.amount.value,
@@ -60,10 +71,11 @@ const Wallet: NextPageWithLayout = () => {
       )
       setPayUrl(result.invoice_url)
       document.getElementById('deposit')?.click()
+      checkBalance(result.id)
       // window.location.href = result.invoice_url
     } catch (e: any) {
       toast.error(e.message)
-      // toast.dismiss(toastLoading)
+      toast.dismiss(toastPaying)
       setIsDeposting(false)
     }
   }
@@ -108,13 +120,8 @@ const Wallet: NextPageWithLayout = () => {
               </label>
               <select onChange={handleChangePayCurrency} defaultValue="usdtbsc" className="select select-primary w-full">
                 <option value='usdtbsc'>USDT BSC</option>
-                <option value='usdt'>USDT</option>
-                <option value='busd'>BUSD</option>
-                <option value='bnb'>BNB</option>
-                <option value='btc'>BTC</option>
               </select>
             </div>
-            
             <button className="btn btn-accent self-center mt-8 w-36">Deposit</button>
             <a id="deposit" target="_blank" href={payUrl} rel="noopener noreferrer" className="btn btn-accent w-36 mx-auto hidden">Deposit</a>
           </div>

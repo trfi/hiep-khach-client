@@ -43,11 +43,6 @@ export function DashboardLayout({ children }: LayoutProps) {
 
   return (
     <Auth>
-      {/* <header className='flex bg-slate-800 w-full px-6 py-2 justify-end items-center space-x-4 font-semibold'>
-        <h1>{ user && user.username }</h1>
-        <button onClick={logout} className='px-5 py-1.5 bg-slate-600 font-semibold rounded-lg text-white'>Logout</button>
-      </header> */}
-
       <div className="drawer-mobile drawer">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-start justify-start">
@@ -63,7 +58,7 @@ export function DashboardLayout({ children }: LayoutProps) {
                   <path
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeWidth="2"
                     d="M4 6h16M4 12h16M4 18h16"
                   ></path>
                 </svg>

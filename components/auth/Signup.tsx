@@ -84,7 +84,7 @@ const Signup = () => {
             defaultValue={refId}
             autoComplete="referral"
             className="input input-bordered w-full text-center text-base"
-            placeholder="Người giới thiệu"
+            placeholder="Mã giới thiệu"
           />
         </div>
 

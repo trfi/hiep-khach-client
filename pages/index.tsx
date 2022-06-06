@@ -81,11 +81,11 @@ const Home: NextPage = () => {
         >
           <div className="flex items-center gap-4">
             <img src="/images/android.png" width={50} alt="android" />
-            <a target='_blank' href="https://download.s.hiepkhachtranhhung.com/apk">Tải xuống</a>
+            <a target='_blank' href="https://download.hiepkhachtranhhung.com/apk">Tải xuống</a>
           </div>
           <div className="flex items-center gap-4">
             <img src="/images/ios.png" width={70} alt="android" />
-            <a href="https:/download.hiepkhachtranhhung.com/ipa">Tải xuống</a>
+            <a target='_blank' href="https://download.hiepkhachtranhhung.com/ipa">Tải xuống</a>
           </div>
         </div>
 

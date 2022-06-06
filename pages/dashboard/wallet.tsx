@@ -10,7 +10,7 @@ const { publicRuntimeConfig } = getConfig();
 
 const Wallet: NextPageWithLayout = () => {
   const [isDeposting, setIsDeposting] = useState(false)
-  const [payUrl, setPayUrl] = useState('')
+  // const [payUrl, setPayUrl] = useState('')
   const [payAmount, setPayAmount] = useState(50)
   const [payCurrency, setPayCurrency] = useState('usdtbsc')
   let toastPaying = ''
@@ -18,15 +18,15 @@ const Wallet: NextPageWithLayout = () => {
     dedupingInterval: 60 * 1000
   })
 
-  function handleChangePayAmount(e: any) {
-    setPayAmount(e.target.value)
-    setPayUrl(`${publicRuntimeConfig.apiUrl}/wallet/payment?priceAmount=${e.target.value}&payCurrency=${payCurrency}`)
-  }
+  // function handleChangePayAmount(e: any) {
+  //   setPayAmount(e.target.value)
+  //   setPayUrl(`${publicRuntimeConfig.apiUrl}/wallet/payment?priceAmount=${e.target.value}&payCurrency=${payCurrency}`)
+  // }
 
-  function handleChangePayCurrency(e: any) {
-    setPayCurrency(e.target.value)
-    setPayUrl(`${publicRuntimeConfig.apiUrl}/wallet/payment?priceAmount=${payAmount}&payCurrency=${e.target.value}`)
-  }
+  // function handleChangePayCurrency(e: any) {
+  //   setPayCurrency(e.target.value)
+  //   setPayUrl(`${publicRuntimeConfig.apiUrl}/wallet/payment?priceAmount=${payAmount}&payCurrency=${e.target.value}`)
+  // }
 
   // const depositHistory = useSWR('/history/deposit')
 
@@ -69,10 +69,12 @@ const Wallet: NextPageWithLayout = () => {
           payCurrency,
         }
       )
-      setPayUrl(result.invoice_url)
-      document.getElementById('deposit')?.click()
+      // setPayUrl(result.invoice_url)
+      // document.getElementById('deposit')?.click()
+      setTimeout(() => {
+        window.open(result.invoice_url, '_blank');
+      })
       checkBalance(result.id)
-      // window.location.href = result.invoice_url
     } catch (e: any) {
       toast.error(e.message)
       toast.dismiss(toastPaying)
@@ -109,7 +111,7 @@ const Wallet: NextPageWithLayout = () => {
                 <span className="label-text">Enter amount. Min 50</span>
               </label>
               <label className="input-group">
-                <input onChange={handleChangePayAmount} type="number" name="amount" defaultValue={payAmount} className="input input-bordered w-full input-success" min={50} max={1000000} required />
+                <input type="number" name="amount" defaultValue={payAmount} className="input input-bordered w-full input-success" min={50} max={1000000} required />
                 <span>USD</span>
               </label>
             </div>
@@ -118,12 +120,12 @@ const Wallet: NextPageWithLayout = () => {
               <label className="label">
                 <span className="label-text">Select currency</span>
               </label>
-              <select onChange={handleChangePayCurrency} defaultValue="usdtbsc" className="select select-primary w-full">
+              <select defaultValue="usdtbsc" className="select select-primary w-full">
                 <option value='usdtbsc'>USDT BSC</option>
               </select>
             </div>
             <button className="btn btn-accent self-center mt-8 w-36">Deposit</button>
-            <a id="deposit" target="_blank" href={payUrl} rel="noopener noreferrer" className="btn btn-accent w-36 mx-auto hidden">Deposit</a>
+            {/* <a id="deposit" target="_blank" href={payUrl} rel="noopener noreferrer" className="btn btn-accent w-36 mx-auto hidden">Deposit</a> */}
           </div>
         </form>
     </div>

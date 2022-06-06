@@ -4,12 +4,13 @@ import { NextPageWithLayout } from '@/models'
 import { useState } from 'react'
 import toast from 'react-hot-toast'
 import useSWR from 'swr'
+import useSWRImmutable from 'swr/immutable'
 
 const Exchange: NextPageWithLayout = () => {
   const [server, setServer] = useState(0)
   const [roles, setRoles] = useState<Array<any>>([])
-  const { data: servers, isValidating } = useSWR('/game/servers')
-  const { data: knbPackages } = useSWR('/game/knbpack')
+  const { data: servers } = useSWRImmutable('/game/servers')
+  const { data: knbPackages } = useSWRImmutable('/game/knbpack')
 
   const exchangeHistory = useSWR('/history/exchange')
   const userBalance = useSWR('/wallet/balance')

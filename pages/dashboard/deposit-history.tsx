@@ -4,8 +4,8 @@ import useSWR from 'swr'
 
 const DepositHistory: NextPageWithLayout = () => {
   const { data } = useSWR('/history/deposit', {
-    dedupingInterval: 60 * 1000,
-    revalidateOnFocus: true
+    revalidateOnFocus: true,
+    revalidateOnMount: true
   })
 
   return (

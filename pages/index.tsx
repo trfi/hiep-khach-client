@@ -28,7 +28,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header></Header>
-      <main>
+      <main className='bg-black text-white'>
         <Banner></Banner>
         <div className="flex items-center px-20 pt-20 lg:pt-0">
           <img width={88} src="/images/polygon1.svg" alt="warning" />
@@ -49,7 +49,7 @@ const Home: NextPage = () => {
           </a>
         </div>
 
-        <div className="max-w-screen-2xl mx-auto my-32 px-8">
+        <div className="max-w-screen-2xl mx-auto my-20 lg:my-32 lg:px-8">
           <SlideHome />
         </div>
 
@@ -61,7 +61,7 @@ const Home: NextPage = () => {
           <div className="w-1/2 flex justify-center">
             <img src="/images/character2.svg" alt="character2" />
           </div>
-          <span className="w-1/2 whitespace-pre-line px-10 text-white text-sm lg:text-base">
+          <span className="w-1/2 whitespace-pre-line px-5 lg:px-10 text-white text-sm lg:text-base">
             Cùng mời thêm nhiều người chơi để hưởng ưu đãi hoa hồng <br />{' '}
             <br />
             Ngoài chơi game kiếm vật phẩm hiếm để trao đổi cho những người cần,
@@ -84,8 +84,8 @@ const Home: NextPage = () => {
             <a target='_blank' href="https://download.hiepkhachtranhhung.com/apk">Tải xuống</a>
           </div>
           <div className="flex items-center gap-4">
-            <img src="/images/ios.png" width={70} alt="android" />
-            <a target='_blank' href="https://download.hiepkhachtranhhung.com/ipa">Tải xuống</a>
+            <img src="/images/ios.png" width={70} alt="ios" />
+            <a href="https://download.hiepkhachtranhhung.com/ipa">Tải xuống</a>
           </div>
         </div>
 

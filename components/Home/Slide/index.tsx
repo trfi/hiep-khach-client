@@ -7,6 +7,7 @@ export default function SlideHome() {
     slidesToShow: 2,
     autoplay: true,
     autoplaySpeed: 3000,
+    
     responsive: [
       {
         breakpoint: 1280,
@@ -36,6 +37,7 @@ export default function SlideHome() {
           slidesToShow: 1,
           autoplay: true,
           autoplaySpeed: 3000,
+          arrows: false,
         }
       }
     ]

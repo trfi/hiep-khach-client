@@ -4,19 +4,19 @@ import AuthModal from '@/components/auth/Modal'
 import { useAuth } from '@/hooks'
 import Link from 'next/link'
 
-export const Header = () => {
+export const Header = (props: { hideLogo?: boolean }) => {
   const [open, setOpen] = useRecoilState(modalAuthState)
   const { user, logout } = useAuth()
 
   return (
     <>
-      <div className='absolute w-[100px] lg:w-[305px] left-[2%] top-[1%] lg:top-[2%] z-20'>
+      { !props.hideLogo && <div className='absolute w-[100px] lg:w-[305px] left-[2%] top-[1%] lg:top-[2%] z-20'>
         <img width={305} src="/logo.svg" alt="logo" />
-      </div>
-      <header className="flex h-16 items-center lg:items-end justify-end bg-black pb-0 lg:pb-3">
+      </div> }
+      <header className="flex h-16 items-center lg:items-end justify-end bg-black text-white pb-0 lg:pb-3">
         <ul className="hidden md:flex gap-16">
           <li className='hover:text-gray-300'>
-            <a href="#">Trang chủ</a>
+            <a href="/">Trang chủ</a>
           </li>
           <li className='hover:text-gray-300'>
             <a href="#about">Giới thiệu</a>
@@ -25,7 +25,7 @@ export const Header = () => {
             <a href="#blog">Blog</a>
           </li>
           <li className='hover:text-gray-300'>
-            <a href="#wifi">Wiki</a>
+            <a href="/wiki">Wiki</a>
           </li>
           <li className='hover:text-gray-300'>
             <a href="#news">Tin tức</a>

@@ -18,7 +18,7 @@ const TreeNode = ({ node }) => {
 
   const hasChild = node.children.length ? true : false;
   return (
-    <li className="d-tree-node border-0 text-white">
+    <li className="pl-6 lg:pl-12 border-0 text-white">
       <div className="flex my-3" onClick={(e) => setChildVisiblity((v) => !v)}>
         {hasChild ? 
           <div

@@ -100,21 +100,15 @@ const Exchange: NextPageWithLayout = () => {
             >
               <div className="card-body">
                 <h2 className="card-title text-4xl">
-                  {pack.price.toLocaleString('en-US', {
-                    style: 'currency',
-                    currency: 'USD',
-                  })}
+                  ${pack.price.toLocaleString()}
                 </h2>
                 <p>
                   ={' '}
                   {pack.knb
-                    .toLocaleString('vn-VI', {
-                      style: 'currency',
-                      currency: 'KNB',
-                    })
-                    .replace(',00', '')}
+                    .toLocaleString()} (Vàng)
                 </p>
-                <div className="card-actions justify-end">
+                <div className="card-actions justify-between items-end">
+                  <code className='text-sm text-slate-300'>{pack.note}</code>
                   <button
                     onClick={() => buyHandle(pack.id)}
                     className="btn btn-primary"

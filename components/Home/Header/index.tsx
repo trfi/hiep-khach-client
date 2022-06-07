@@ -22,10 +22,7 @@ export const Header = (props: { hideLogo?: boolean }) => {
             <a href="#about">Giới thiệu</a>
           </li>
           <li className='hover:text-gray-300'>
-            <a href="#blog">Blog</a>
-          </li>
-          <li className='hover:text-gray-300'>
-            <a href="/wiki">Wiki</a>
+            <a href="/wiki">Hướng dẫn</a>
           </li>
           <li className='hover:text-gray-300'>
             <a href="#news">Tin tức</a>

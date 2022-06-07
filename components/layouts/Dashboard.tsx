@@ -3,8 +3,8 @@ import { useRouter } from 'next/router'
 import { LayoutProps } from '@/models'
 import { useAuth } from '@/hooks'
 import { Auth } from '../common'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 
 export function DashboardLayout({ children }: LayoutProps) {
   const router = useRouter()
@@ -43,7 +43,7 @@ export function DashboardLayout({ children }: LayoutProps) {
 
   return (
     <Auth>
-      <div className="drawer-mobile drawer">
+      <div className="drawer drawer-mobile">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-start justify-start">
           <div className="navbar w-full bg-base-300">
@@ -65,13 +65,10 @@ export function DashboardLayout({ children }: LayoutProps) {
               </label>
             </div>
             <div className="mx-2 flex-1 px-2 font-airstrike font-bold text-slate-400"></div>
-            <div className='flex-none'>
+            <div className="flex-none">
               <ul className="menu menu-horizontal">
                 <li>
-                  <button
-                    onClick={logout}
-                    className="rounded-xl text-xl"
-                  >
+                  <button onClick={logout} className="rounded-xl p-3 text-xl">
                     <FontAwesomeIcon icon={faArrowRightFromBracket} />
                   </button>
                 </li>
@@ -82,7 +79,7 @@ export function DashboardLayout({ children }: LayoutProps) {
         </div>
         <div className="drawer-side">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-          <ul className="menu w-72 lg:w-80 overflow-y-auto bg-base-300 p-4 text-base-content">
+          <ul className="menu w-72 overflow-y-auto bg-base-300 p-4 text-base-content lg:w-80">
             <div className="mb-1 flex items-center p-4 font-bold">
               <div className="avatar placeholder online mr-4">
                 <div className="w-10 rounded-full bg-neutral-focus text-neutral-content">
@@ -91,7 +88,7 @@ export function DashboardLayout({ children }: LayoutProps) {
                   </span>
                 </div>
               </div>
-              <div>{user?.username}</div>
+              <Link href="/profile">{user ? user.username : ''}</Link>
             </div>
             {menuItems.map(({ href, title }) => (
               <li className="my-[3px]" key={title}>

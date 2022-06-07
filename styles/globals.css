@@ -32,12 +32,6 @@ html {
   padding: 0;
 }
 
-.d-tree-node {
-  /* padding-top: 0.75rem;
-  padding-bottom: 0.75rem; */
-  padding-left: 4.25rem;
-}
-
 .d-tree-toggler.active {
   transform: rotate(45deg);
 }

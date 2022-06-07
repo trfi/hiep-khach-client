@@ -12,10 +12,7 @@ export const Footer = () => {
       <div className="flex flex-col justify-end pb-10 items-center">
         <ul className="lg:hidden flex w-full justify-around my-5">
           <li className='hover:text-gray-300'>
-            <a href="#blog">Blog</a>
-          </li>
-          <li className='hover:text-gray-300'>
-            <a href="/wiki">Wiki</a>
+            <a href="/wiki">Hướng dẫn</a>
           </li>
           <li className='hover:text-gray-300'>
             <a href="#news">Tin tức</a>
@@ -29,7 +26,7 @@ export const Footer = () => {
           <a className="w-[40px] lg:w-[60px]" href="https://t.me/hiepkhachtranhhung" target="_blank">
             <img width="60" src="/images/telegram.svg" alt="Telegram" />
           </a>
-          <a className="w-[40px] lg:w-[60px]" href="https://www.facebook.com/hiepkhachtranhhung" target="_blank">
+          <a className="w-[40px] lg:w-[60px]" href="https://www.facebook.com/Hi%E1%BB%87p-Kh%C3%A1ch-Tranh-H%C3%B9ng-104107655666693" target="_blank">
             <img width="60" src="/images/facebook.svg" alt="Facebook" />
           </a>
         </div>

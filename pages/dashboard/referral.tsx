@@ -4,7 +4,7 @@ import { NextPageWithLayout } from '@/models'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCopy } from '@fortawesome/free-solid-svg-icons'
 import { useAuth } from '@/hooks'
-import toast, { Toaster } from 'react-hot-toast'
+import toast from 'react-hot-toast'
 import { Disclosure } from '@headlessui/react'
 
 const Referral: NextPageWithLayout = () => {
@@ -23,7 +23,7 @@ const Referral: NextPageWithLayout = () => {
     <div className="w-full">
       <div className="my-8 flex flex-col items-center">
         <h2 className="text-xl font-semibold">Your referral link:</h2> <br />
-        <div className="form-control max-w-xl w-full">
+        <div className="form-control w-full max-w-xl">
           <div className="input-group">
             <input
               type="text"
@@ -38,21 +38,21 @@ const Referral: NextPageWithLayout = () => {
         </div>
       </div>
       <TreeList />
-      
+
       <div className="mt-10 flex flex-col items-center">
-      <Disclosure defaultOpen={false}>
-        <Disclosure.Button className="mx-auto mb-6 btn btn-outline btn-success">
-          View Refferal Program Benefit
-        </Disclosure.Button>
-        <Disclosure.Panel>
-          <img
-            className="mx-auto"
-            width={800}
-            src="/images/commission-level.jpg"
-            alt="Commission"
-          />
-        </Disclosure.Panel>
-      </Disclosure>
+        <Disclosure defaultOpen={false}>
+          <Disclosure.Button className="btn btn-outline btn-success mx-auto mb-6">
+            View Refferal Program Benefit
+          </Disclosure.Button>
+          <Disclosure.Panel>
+            <img
+              className="mx-auto"
+              width={800}
+              src="/images/commission-level.jpg"
+              alt="Commission"
+            />
+          </Disclosure.Panel>
+        </Disclosure>
       </div>
     </div>
   )

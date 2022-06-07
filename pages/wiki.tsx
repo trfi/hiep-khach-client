@@ -36,8 +36,8 @@ const Wifi = () => {
       <Header hideLogo></Header>
       <main className="flex flex-col lg:flex-row w-full justify-around py-10">
         <ul className="list-disc lg:text-lg space-y-2 px-2 lg:px-0">
-          {listMenu.map((item) => (
-            <li>
+          {listMenu.map((item, idx) => (
+            <li key={idx}>
               <button onClick={() => handleClick(item.link)}>
                 {item.title}
               </button>

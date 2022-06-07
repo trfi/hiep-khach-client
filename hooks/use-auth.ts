@@ -68,6 +68,7 @@ export function useAuth(
     login,
     signup,
     logout,
+    mutate,
     isLoading,
     firstLoading,
   }

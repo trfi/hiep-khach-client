@@ -1,8 +1,16 @@
-import { useState } from 'react'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
 import { Header } from '../components/home'
 
 const Wifi = () => {
-  const [link, setLink] = useState('https://drive.google.com/file/d/10YhzXbqAV8_8oMpyBAmjSJ78dznKIBYe/preview')
+  // const [link, setLink] = useState('')
+
+  // const router = useRouter()
+
+  // useEffect(() => {
+  //   if (router.query.t == 'download-ios') setLink('https://drive.google.com/file/d/1VmHoWX0Ybt3qlRZz_87_nobj0dKdU8Cp/preview')
+  //   else setLink('https://drive.google.com/file/d/10YhzXbqAV8_8oMpyBAmjSJ78dznKIBYe/preview')
+  // }, [router])
 
   const listMenu = [
     {
@@ -25,17 +33,23 @@ const Wifi = () => {
       link: 'https://drive.google.com/file/d/1HLf6dgJcNWRIx8UtsdYc5_i1VapUY5_K/preview',
       title: 'Vật phẩm trong game bằng xu',
     },
+    {
+      link: 'https://drive.google.com/file/d/1VmHoWX0Ybt3qlRZz_87_nobj0dKdU8Cp/preview',
+      title: 'Hướng dẫn tải game IOS',
+    },
   ]
 
   function handleClick(link: string) {
-    setLink(link)
+    setTimeout(() => {
+      window.open(link, '_blank');
+    })
   }
 
   return (
     <div>
       <Header hideLogo></Header>
-      <main className="flex flex-col lg:flex-row w-full justify-around py-10">
-        <ul className="list-disc lg:text-lg space-y-2 px-2 lg:px-0">
+      <main className="flex flex-col lg:flex-row w-full justify-around py-10 text-white">
+        <ul className="list-disc lg:text-lg space-y-2 px-6">
           {listMenu.map((item, idx) => (
             <li key={idx}>
               <button onClick={() => handleClick(item.link)}>
@@ -44,8 +58,8 @@ const Wifi = () => {
             </li>
           ))}
         </ul>
+        {/* <embed src={link} className='w-full max-w-3xl h-[50vh] lg:h-[80vh] mt-10 lg:mt-0'></embed> */}
         {/* <iframe src="https://drive.google.com/file/d/10YhzXbqAV8_8oMpyBAmjSJ78dznKIBYe/preview" width="640" height="480"></iframe> */}
-        <embed src={link} className='w-full max-w-2xl h-[50vh] lg:h-[80vh] mt-10 lg:mt-0'></embed>
       </main>
     </div>
   )

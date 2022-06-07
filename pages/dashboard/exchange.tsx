@@ -5,10 +5,12 @@ import { useState } from 'react'
 import toast from 'react-hot-toast'
 import useSWR from 'swr'
 import useSWRImmutable from 'swr/immutable'
+import { useAuth } from '../../hooks'
 
 const Exchange: NextPageWithLayout = () => {
   const [server, setServer] = useState(0)
   const [roles, setRoles] = useState<Array<any>>([])
+  const { user } = useAuth()
   const { data: servers } = useSWRImmutable('/game/servers')
   const { data: knbPackages } = useSWRImmutable('/game/knbpack')
 
@@ -51,7 +53,7 @@ const Exchange: NextPageWithLayout = () => {
   return (
     <div className="w-full">
       <div className="text-center">
-        <h1 className="text-4xl font-bold">BUY KNB</h1>
+        <h1 className="text-4xl font-bold">QUY ĐỔI VÀNG (KNB)</h1>
       </div>
 
       <div className="mt-[4vh] flex flex-col items-center gap-6">
@@ -99,16 +101,19 @@ const Exchange: NextPageWithLayout = () => {
               key={pack.id}
             >
               <div className="card-body">
-                <h2 className="card-title text-4xl">
+                <h3 className="card-title text-4xl font-bold">
                   ${pack.price.toLocaleString()}
-                </h2>
+                </h3>
                 <p>
-                  ={' '}
-                  {pack.knb
-                    .toLocaleString()} (Vàng)
+                  = {pack.knb.toLocaleString()} KNB (vàng){' '}
+                  <span className="text-yellow-300">
+                    {!user.firstExchange && pack.bonus ? `- Bonus ${pack.bonus}%` : ''}
+                  </span>
                 </p>
-                <div className="card-actions justify-between items-end">
-                  <code className='text-sm text-slate-300'>{pack.note}</code>
+                <div className="card-actions items-end justify-between">
+                  <code className="text-sm text-yellow-300">
+                    {!user.firstExchange && pack.note}
+                  </code>
                   <button
                     onClick={() => buyHandle(pack.id)}
                     className="btn btn-primary"

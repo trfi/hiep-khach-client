@@ -5,7 +5,7 @@ import { useState } from 'react'
 import toast from 'react-hot-toast'
 import useSWR from 'swr'
 import useSWRImmutable from 'swr/immutable'
-import { useAuth } from '../../hooks'
+import { useAuth } from '@/hooks'
 
 const Exchange: NextPageWithLayout = () => {
   const [server, setServer] = useState(0)

@@ -10,24 +10,26 @@ export const Header = (props: { hideLogo?: boolean }) => {
 
   return (
     <>
-      { !props.hideLogo && <div className='absolute w-[100px] lg:w-[305px] left-[2%] top-[1%] lg:top-[2%] z-20'>
-        <img width={305} src="/logo.svg" alt="logo" />
-      </div> }
-      <header className="flex h-16 items-center lg:items-end justify-end bg-black text-white pb-0 lg:pb-3">
-        <ul className="hidden md:flex gap-16">
-          <li className='hover:text-gray-300'>
+      {!props.hideLogo && (
+        <div className="absolute left-[2%] top-[1%] z-20 w-[100px] lg:top-[2%] lg:w-[305px]">
+          <img width={305} src="/logo.svg" alt="logo" />
+        </div>
+      )}
+      <header className="flex h-16 items-center justify-end bg-black pb-0 text-white lg:items-end lg:pb-3">
+        <ul className="hidden gap-16 md:flex">
+          <li className="hover:text-gray-300">
             <a href="/">Trang chủ</a>
           </li>
-          <li className='hover:text-gray-300'>
+          <li className="hover:text-gray-300">
             <a href="#about">Giới thiệu</a>
           </li>
-          <li className='hover:text-gray-300'>
+          <li className="hover:text-gray-300">
             <a href="/wiki">Hướng dẫn</a>
           </li>
-          <li className='hover:text-gray-300'>
+          <li className="hover:text-gray-300">
             <a href="#news">Tin tức</a>
           </li>
-          <li className='hover:text-gray-300'>
+          <li className="hover:text-gray-300">
             {user ? (
               <Link href="/dashboard">Dashboard</Link>
             ) : (
@@ -36,25 +38,26 @@ export const Header = (props: { hideLogo?: boolean }) => {
           </li>
         </ul>
 
-        <div className='lg:hidden'>
+        <div className="lg:hidden space-x-3">
+          {props.hideLogo && <Link href="/">Home</Link>}
           {user ? (
-                <Link href="/dashboard">Dashboard</Link>
-              ) : (
-                <button onClick={() => setOpen(true)}>Đăng nhập</button>
-              )}
+            <Link href="/dashboard">Dashboard</Link>
+          ) : (
+            <button onClick={() => setOpen(true)}>Đăng nhập</button>
+          )}
         </div>
 
-        <div className="relative mr-8 ml-3 lg:mx-10 flex flex-shrink-0 cursor-pointer">
+        <div className="relative mr-8 ml-3 flex flex-shrink-0 cursor-pointer lg:mx-10">
           <img
             src="/images/en.webp"
             width="30"
-            alt="Lang EN"
+            alt="en"
             className="z-10"
           />
           <img
             src="/images/vi.webp"
             width="30"
-            alt="Lang VI"
+            alt="vi"
             className="absolute left-3.5"
           />
         </div>

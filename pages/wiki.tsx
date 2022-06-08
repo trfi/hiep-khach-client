@@ -2,15 +2,25 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { Header } from '../components/home'
 
-const Wifi = () => {
-  // const [link, setLink] = useState('')
+const Wiki = () => {
+  const [link, setLink] = useState('')
 
-  // const router = useRouter()
+  const router = useRouter()
 
-  // useEffect(() => {
-  //   if (router.query.t == 'download-ios') setLink('https://drive.google.com/file/d/1VmHoWX0Ybt3qlRZz_87_nobj0dKdU8Cp/preview')
-  //   else setLink('https://drive.google.com/file/d/10YhzXbqAV8_8oMpyBAmjSJ78dznKIBYe/preview')
-  // }, [router])
+  useEffect(() => {
+    if (router.query.t == 'download-ios')
+      setLink(
+        'https://drive.google.com/file/d/1VmHoWX0Ybt3qlRZz_87_nobj0dKdU8Cp/preview'
+      )
+    else
+      setLink(
+        'https://drive.google.com/file/d/10YhzXbqAV8_8oMpyBAmjSJ78dznKIBYe/preview'
+      )
+  }, [router])
+
+  const isMobile =
+    typeof window !== 'undefined' &&
+    window?.matchMedia('only screen and (max-width: 760px)').matches
 
   const listMenu = [
     {
@@ -40,16 +50,19 @@ const Wifi = () => {
   ]
 
   function handleClick(link: string) {
-    setTimeout(() => {
-      window.open(link, '_blank');
-    })
+    if (isMobile) {
+      setTimeout(() => {
+        window.open(link, '_blank')
+      })
+    } else setLink(link)
+    // router.replace('/wiki?t=download-ios')
   }
 
   return (
     <div>
       <Header hideLogo></Header>
-      <main className="flex flex-col lg:flex-row w-full justify-around py-10 text-white">
-        <ul className="list-disc lg:text-lg space-y-2 px-6">
+      <main className="flex w-full flex-col justify-around py-10 text-white lg:flex-row">
+        <ul className="list-disc space-y-2 px-6 lg:text-lg">
           {listMenu.map((item, idx) => (
             <li key={idx}>
               <button onClick={() => handleClick(item.link)}>
@@ -58,10 +71,16 @@ const Wifi = () => {
             </li>
           ))}
         </ul>
-        {/* <embed src={link} className='w-full max-w-3xl h-[50vh] lg:h-[80vh] mt-10 lg:mt-0'></embed> */}
+        {!isMobile && (
+          <embed
+            src={link}
+            className="mt-10 h-[50vh] w-full max-w-3xl lg:mt-0 lg:h-[80vh]"
+          ></embed>
+        )}
         {/* <iframe src="https://drive.google.com/file/d/10YhzXbqAV8_8oMpyBAmjSJ78dznKIBYe/preview" width="640" height="480"></iframe> */}
       </main>
     </div>
   )
 }
-export default Wifi
+
+export default Wiki

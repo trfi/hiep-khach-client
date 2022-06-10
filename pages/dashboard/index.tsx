@@ -4,6 +4,7 @@ import { NextPageWithLayout } from '@/models'
 import useSWR from 'swr'
 import toast from 'react-hot-toast'
 import { useAuth } from '@/hooks'
+import Banner from '@/components/dashboard/Banner'
 
 const Dashboard: NextPageWithLayout = () => {
   const { data } = useSWR('/wallet/balance', {
@@ -12,7 +13,11 @@ const Dashboard: NextPageWithLayout = () => {
   const { user } = useAuth()
 
   return (
-    <div className='flex flex-col w-full items-center justify-center gap-8'>
+    <div className='flex flex-col w-full items-center justify-center gap-6'>
+      
+      <div id='banner-dashboard' className='w-full max-w-screen-xl'>
+        <Banner />
+      </div>
 
       <div className="stats w-full max-w-screen-xl py-4 stats-vertical lg:stats-horizontal bg-primary text-primary-content">
         <div className="stat">
@@ -79,7 +84,6 @@ const Dashboard: NextPageWithLayout = () => {
         </div>
       </div>
 
-      
       <div className="stats w-full max-w-screen-xl py-4 stats-vertical lg:stats-horizontal bg-primary text-primary-content">
         <div className="stat">
           <div className="stat-title">Account Balance</div>

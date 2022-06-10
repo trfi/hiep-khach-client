@@ -27,10 +27,15 @@ html {
   scroll-behavior: smooth;
 }
 
+#banner-dashboard .slick-list {
+  border-radius: 1rem;
+}
+
 .d-tree-container {
   list-style: none;
   padding: 0;
 }
+
 
 .d-tree-toggler.active {
   transform: rotate(45deg);

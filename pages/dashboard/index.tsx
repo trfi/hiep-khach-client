@@ -36,7 +36,7 @@ const Dashboard: NextPageWithLayout = () => {
               ></path>
             </svg>
           </div>
-          <div className="stat-title">Downloads</div>
+          <div className="stat-title">Lượt tải xuống</div>
           <div className="stat-value">12K</div>
           <div className="stat-desc">Jan 1st - Feb 1st</div>
         </div>
@@ -57,7 +57,7 @@ const Dashboard: NextPageWithLayout = () => {
               ></path>
             </svg>
           </div>
-          <div className="stat-title">Total Referral</div>
+          <div className="stat-title">Tổng số Ref F1</div>
           <div className="stat-value">{user?.referralChild?.length}</div>
           <div className="stat-desc">↗︎ 112 (22%)</div>
         </div>
@@ -78,7 +78,7 @@ const Dashboard: NextPageWithLayout = () => {
               ></path>
             </svg>
           </div>
-          <div className="stat-title">New Registers</div>
+          <div className="stat-title">Đăng ký mới</div>
           <div className="stat-value">225</div>
           <div className="stat-desc">↘︎ 90 (14%)</div>
         </div>
@@ -86,31 +86,31 @@ const Dashboard: NextPageWithLayout = () => {
 
       <div className="stats w-full max-w-screen-xl py-4 stats-vertical lg:stats-horizontal bg-primary text-primary-content">
         <div className="stat">
-          <div className="stat-title">Account Balance</div>
+          <div className="stat-title">Số dư ví chính</div>
           <div className="stat-value">${data?.balance}</div>
           <div className="stat-actions">
-            <Link href='/dashboard/wallet'><button className="btn btn-success btn-sm">Deposit</button></Link>
+            <Link href='/dashboard/wallet'><button className="btn btn-success btn-sm">Nạp tiền</button></Link>
           </div>
         </div>
         <div className="stat">
-          <div className="stat-title">Commission Balance</div>
+          <div className="stat-title">Số dư ví hoa hồng</div>
           <div className="stat-value">${data?.commissionBalance}</div>
           <div className="stat-actions">
-            <button onClick={() => toast('Comming soon')} className="btn btn-success btn-sm">Withdrawal</button>
+            <button onClick={() => toast('Comming soon')} className="btn btn-success btn-sm">Rút tiền</button>
           </div>
         </div>
         <div className="stat">
-          <div className="stat-title">Total Deposit</div>
+          <div className="stat-title">Tổng đã nạp</div>
           <div className="stat-value">${data?.totalDeposit}</div>
           <div className="stat-actions">
-          <Link href='/dashboard/deposit-history'><button className="btn btn-sm">HISTORY</button></Link>
+          <Link href='/dashboard/deposit-history'><button className="btn btn-sm">Lịch sử nạp</button></Link>
           </div>
         </div>
         <div className="stat">
-          <div className="stat-title">Total Withdrawal</div>
+          <div className="stat-title">Tổng đã rút</div>
           <div className="stat-value">${data?.totalWithdrawal}</div>
           <div className="stat-actions">
-            <button onClick={() => toast('Comming soon')} className="btn btn-sm">HISTORY</button>
+            <button onClick={() => toast('Comming soon')} className="btn btn-sm">Lịch sử rút</button>
           </div>
         </div>
       </div>

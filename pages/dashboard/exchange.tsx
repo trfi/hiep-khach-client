@@ -38,7 +38,7 @@ const Exchange: NextPageWithLayout = () => {
   }
 
   async function buyHandle(e: any, packId: string) {
-    if (!role) return toast.error('Please select character')
+    if (!role) return toast.error('Vui lòng chọn nhân vật')
     e.target.disabled = true
     try {
       const character = roles.find((r) => r.id == role).name
@@ -50,7 +50,7 @@ const Exchange: NextPageWithLayout = () => {
         character,
       })
       await test()
-      toast.success('Buy success, check your mail in game')
+      toast.success('Mua thành công, kiểm tra thư trong game')
       mutateUser()
       exchangeHistory.mutate()
       userBalance.mutate()
@@ -87,7 +87,7 @@ const Exchange: NextPageWithLayout = () => {
           defaultValue="character"
         >
           <option value="character" disabled>
-            Character
+            Nhân vật
           </option>
           {roles && roles?.length ? (
             roles.map((role: { id: number; name: string }) => (
@@ -96,9 +96,9 @@ const Exchange: NextPageWithLayout = () => {
               </option>
             ))
           ) : server == 0 ? (
-            <option disabled>Choose server</option>
+            <option disabled>Chọn server</option>
           ) : (
-            <option disabled>Character not created yet</option>
+            <option disabled>Chưa tạo nhân vật nào</option>
           )}
         </select>
       </div>

@@ -16,13 +16,13 @@ const Referral: NextPageWithLayout = () => {
 
   function onCopyHandler() {
     navigator.clipboard.writeText(refLink)
-    toast.success('Referral link copied')
+    toast.success('Sao chép thành công')
   }
 
   return (
     <div className="w-full">
       <div className="my-8 flex flex-col items-center">
-        <h2 className="text-xl font-semibold">Your referral link:</h2> <br />
+        <h2 className="text-xl font-semibold">Liên kết giới thiệu:</h2> <br />
         <div className="form-control w-full max-w-xl">
           <div className="input-group">
             <input
@@ -42,7 +42,7 @@ const Referral: NextPageWithLayout = () => {
       <div className="mt-10 flex flex-col items-center">
         <Disclosure defaultOpen={false}>
           <Disclosure.Button className="btn btn-outline btn-success mx-auto mb-6">
-            View Refferal Program Benefit
+            Hoa hồng giới thiệu
           </Disclosure.Button>
           <Disclosure.Panel>
             <img

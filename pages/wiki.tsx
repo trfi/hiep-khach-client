@@ -44,6 +44,10 @@ const Wiki = () => {
       title: 'Vật phẩm trong game bằng xu',
     },
     {
+      link: 'https://drive.google.com/file/d/1t75ZM76EHTg6vwWV9k0cQiQxbWeXlpx5/preview',
+      title: 'Vật phẩm vẻ ngoài',
+    },
+    {
       link: 'https://drive.google.com/file/d/1VmHoWX0Ybt3qlRZz_87_nobj0dKdU8Cp/preview',
       title: 'Hướng dẫn tải game IOS',
     },
@@ -61,10 +65,10 @@ const Wiki = () => {
   return (
     <div>
       <Header hideLogo></Header>
-      <main className="flex w-full flex-col justify-around py-10 text-white lg:flex-row">
+      <main className="flex w-full flex-col justify-around py-10 text-gray-200 lg:flex-row">
         <ul className="list-disc space-y-2 px-6 lg:text-lg">
           {listMenu.map((item, idx) => (
-            <li key={idx}>
+            <li className='hover:text-white' key={idx}>
               <button onClick={() => handleClick(item.link)}>
                 {item.title}
               </button>

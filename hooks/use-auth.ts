@@ -6,8 +6,10 @@ import { PublicConfiguration } from 'swr/dist/types'
 
 interface UserInfo {
   referralChild: string[]
+  withdrawalInfo: { payAddress: string, payNetwork: string }
   username: string
   firstExchange: boolean
+  role: number
   id: string
 }
 

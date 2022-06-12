@@ -4,7 +4,6 @@ import { Banner, Header, Footer } from '@/components/home'
 import SlideHome from '@/components/home/Slide'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-import Link from 'next/link'
 
 const Home: NextPage = () => {
   const router = useRouter()

@@ -16,6 +16,7 @@
   overflow: hidden;
   border-radius: var(--rounded-box, 1rem);
 }
+
 .card:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -29,6 +30,14 @@ html {
 
 #banner-dashboard .slick-list {
   border-radius: 1rem;
+}
+
+#banner-dashboard .slick-dots li button:before {
+  color: #fff !important;
+}
+
+#banner-dashboard .slick-dots {
+  bottom: 1rem;
 }
 
 .d-tree-container {

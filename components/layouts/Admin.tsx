@@ -2,47 +2,31 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { LayoutProps } from '@/models'
 import { useAuth } from '@/hooks'
-import { Auth } from '../common'
+import { AuthAdmin } from '../common'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 
-export function DashboardLayout({ children }: LayoutProps) {
+export function AdminLayout({ children }: LayoutProps) {
   const router = useRouter()
   const { user, logout } = useAuth()
 
   const menuItems = [
     {
-      href: '/dashboard',
+      href: '/admin',
       title: 'Bảng điều khiển',
     },
     {
-      href: '/dashboard/referral',
-      title: 'Chương trình giới thiệu',
+      href: '/admin/users',
+      title: 'Users',
     },
     {
-      href: '/dashboard/commission-history',
-      title: 'Lịch sử hoa hồng',
-    },
-    {
-      href: '/dashboard/wallet',
-      title: 'Ví tiền',
-    },
-    {
-      href: '/dashboard/deposit-history',
-      title: 'Lịch sử nạp',
-    },
-    {
-      href: '/dashboard/exchange',
-      title: 'Quy đổi KNB',
-    },
-    {
-      href: '/dashboard/exchange-history',
-      title: 'Lịch sử quy đổi',
-    },
+      href: '/admin/withdrawal',
+      title: 'Lệnh rút tiền',
+    }
   ]
 
   return (
-    <Auth>
+    <AuthAdmin>
       <div className="drawer drawer-mobile">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-start justify-start">
@@ -106,6 +90,6 @@ export function DashboardLayout({ children }: LayoutProps) {
           </ul>
         </div>
       </div>
-    </Auth>
+    </AuthAdmin>
   )
 }

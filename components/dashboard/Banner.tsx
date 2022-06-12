@@ -7,6 +7,8 @@ export default function Banner() {
     autoplaySpeed: 3000,
     arrows: false,
     focusOnSelect: false,
+    dots: true,
+    infinite: true
   }
   return (
     <Slider {...settings}>

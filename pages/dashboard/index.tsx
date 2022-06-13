@@ -96,7 +96,7 @@ const Dashboard: NextPageWithLayout = () => {
           <div className="stat-title">Số dư ví hoa hồng</div>
           <div className="stat-value">${data?.commissionBalance}</div>
           <div className="stat-actions">
-            <button onClick={() => toast('Comming soon')} className="btn btn-success btn-sm">Rút tiền</button>
+          <Link href="/dashboard/wallet/withdrawal"><button className="btn btn-success btn-sm">Rút tiền</button></Link>
           </div>
         </div>
         <div className="stat">

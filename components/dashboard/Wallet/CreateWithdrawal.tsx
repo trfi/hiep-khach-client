@@ -1,4 +1,5 @@
 import axiosClient from '@/api/axios-client'
+import Link from 'next/link'
 import toast from 'react-hot-toast'
 import useSWR from 'swr'
 
@@ -19,7 +20,9 @@ const CreateWithdrawal = () => {
       withdrawalMutate()
       balanceMuate()
     } catch (e: any) {
-      toast.error(e.message)
+      if (e?.code == 'missing-withdrawal-info') toast.error('Vui lòng cập nhật thông tin thanh toán trước khi rút tiền')
+      else if (e?.code == 'balance-not-enought') toast.error('Số dư không đủ')
+      else toast.error(e.message)
     }
   }
 
@@ -28,6 +31,9 @@ const CreateWithdrawal = () => {
       <p className="text-lg">
         Tiền hoa hồng có thể rút:{' '}
         <span className="font-bold">{balance?.commissionBalance}$</span>
+      </p>
+      <p className="text-lg mt-2">
+        Cập nhật thông tin thanh toán để rút tiền <Link href='/user'><button className='font-bold text-accent underline'>tại đây</button></Link>
       </p>
       <form onSubmit={handlerSubmitWithdrawl} className="flex w-full flex-col lg:flex-row gap-4">
         <div className="mt-4 w-full max-w-xs">
@@ -50,7 +56,7 @@ const CreateWithdrawal = () => {
           </label>
         </div>
         <button className="btn btn-accent mt-8 self-end">
-          Tạo lệnh rút tiền
+          Rút tiền
         </button>
       </form>
     </>

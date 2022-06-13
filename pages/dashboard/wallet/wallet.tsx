@@ -6,27 +6,14 @@ import Link from 'next/link'
 import { useState } from 'react'
 import toast from 'react-hot-toast'
 import useSWR from 'swr'
-const { publicRuntimeConfig } = getConfig()
+import TransferCommissionBalance from '@/components/dashboard/Wallet/TransferCommissionBalance'
 
 const Wallet: NextPageWithLayout = () => {
   const [isDeposting, setIsDeposting] = useState(false)
-  // const [payUrl, setPayUrl] = useState('')
-  const [payAmount, setPayAmount] = useState(50)
-  const [payCurrency, setPayCurrency] = useState('usdtbsc')
   let toastPaying = ''
   const { data, mutate } = useSWR('/wallet/balance', {
     dedupingInterval: 60 * 1000,
   })
-
-  // function handleChangePayAmount(e: any) {
-  //   setPayAmount(e.target.value)
-  //   setPayUrl(`${publicRuntimeConfig.apiUrl}/wallet/payment?priceAmount=${e.target.value}&payCurrency=${payCurrency}`)
-  // }
-
-  // function handleChangePayCurrency(e: any) {
-  //   setPayCurrency(e.target.value)
-  //   setPayUrl(`${publicRuntimeConfig.apiUrl}/wallet/payment?priceAmount=${payAmount}&payCurrency=${e.target.value}`)
-  // }
 
   // const depositHistory = useSWR('/history/deposit')
 
@@ -66,7 +53,7 @@ const Wallet: NextPageWithLayout = () => {
       const result: { invoice_url: string; id: number } =
         await axiosClient.post('/wallet/invoice', {
           priceAmount: +e.target.amount.value,
-          payCurrency,
+          payCurrency: e.target.payCurrency.value,
         })
       // setPayUrl(result.invoice_url)
       // document.getElementById('deposit')?.click()
@@ -104,19 +91,16 @@ const Wallet: NextPageWithLayout = () => {
             <Link href="/dashboard/wallet/withdrawal">
               <button className="btn btn-sm">Rút tiền</button>
             </Link>
-            <button
-              onClick={() => toast('Comming soon')}
-              className="btn btn-sm"
-            >
+            <label htmlFor="my-modal-4" className="btn modal-button btn-sm">
               Chuyển sang tài khoản chính
-            </button>
+            </label>
           </div>
         </div>
       </div>
 
       <form onSubmit={handlerSubmitDeposit} className="flex w-full">
         <div className="flex w-full flex-col gap-4 lg:flex-row">
-          <div className="w-full lg:w-1/4">
+          <div className="w-full max-w-xs">
             <label className="label">
               <span className="label-text">Nhập số tiền. Tối thiểu 50$</span>
             </label>
@@ -124,7 +108,6 @@ const Wallet: NextPageWithLayout = () => {
               <input
                 type="number"
                 name="amount"
-                defaultValue={payAmount}
                 className="input input-bordered input-success w-full"
                 min={50}
                 max={1000000}
@@ -134,11 +117,12 @@ const Wallet: NextPageWithLayout = () => {
             </label>
           </div>
 
-          <div className="w-full lg:w-1/6">
+          <div className="w-full max-w-[15rem]">
             <label className="label">
               <span className="label-text">Chọn token</span>
             </label>
             <select
+              name="payCurrency"
               defaultValue="usdtbsc"
               className="select select-primary w-full"
             >
@@ -148,9 +132,9 @@ const Wallet: NextPageWithLayout = () => {
           <button className="btn btn-accent mt-8 w-36 self-center">
             Nạp tiền
           </button>
-          {/* <a id="deposit" target="_blank" href={payUrl} rel="noopener noreferrer" className="btn btn-accent w-36 mx-auto hidden">Deposit</a> */}
         </div>
       </form>
+      <TransferCommissionBalance commissionBalance={data?.commissionBalance} />
     </div>
   )
 }

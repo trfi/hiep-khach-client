@@ -1,7 +1,6 @@
 import axiosClient from '@/api/axios-client'
 import { useAuth } from '@/hooks'
 import toast from 'react-hot-toast'
-import useSWR from 'swr'
 
 const WithdrawlalInfo = () => {
 
@@ -27,7 +26,7 @@ const WithdrawlalInfo = () => {
       onSubmit={handlerWithdrawlalInfo}
       className="w-full max-w-lg rounded-2xl bg-neutral p-8 text-center"
     >
-      <h3 className="mb-4 text-2xl font-semibold">Thông tin rút tiền</h3>
+      <h3 className="mb-4 text-2xl font-semibold">Thông tin thanh toán</h3>
       <div className="form-control w-full">
         <label className="label mt-2">
           <span className="label-text">Địa chỉ ví</span>
@@ -35,7 +34,7 @@ const WithdrawlalInfo = () => {
         <input
           name="payAddress"
           required
-          defaultValue={user?.withdrawalInfo.payAddress}
+          defaultValue={user?.withdrawalInfo?.payAddress}
           className="input input-bordered input-primary w-full"
         />
         <label className="label mt-2">
@@ -43,7 +42,7 @@ const WithdrawlalInfo = () => {
         </label>
         <select
           name="payNetwork"
-          defaultValue={user?.withdrawalInfo.payNetwork}
+          defaultValue={user?.withdrawalInfo?.payNetwork}
           className="select select-primary w-full"
         >
           <option value="BEP20">BEP20</option>

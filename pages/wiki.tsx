@@ -48,6 +48,10 @@ const Wiki = () => {
       title: 'Vật phẩm vẻ ngoài',
     },
     {
+      link: 'https://drive.google.com/file/d/1TuPlcveC7UYE_zAVStQQRSiULrj2JjOo/preview',
+      title: 'Hướng dẫn nạp tiền từ Remitano'
+    },
+    {
       link: 'https://drive.google.com/file/d/1VmHoWX0Ybt3qlRZz_87_nobj0dKdU8Cp/preview',
       title: 'Hướng dẫn tải game IOS',
     },

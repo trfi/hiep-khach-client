@@ -18,6 +18,9 @@ export default function Banner() {
       <div>
         <img className="rounded-2xl" src="/images/banner-dashboard-2.png" />
       </div>
+      <div>
+        <img className="rounded-2xl" src="/images/banner-dashboard-3.png" />
+      </div>
     </Slider>
   )
 }

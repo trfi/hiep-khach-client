@@ -40,7 +40,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header></Header>
-      <main className="bg-black text-white">
+      <main className="bg-black">
         <Banner></Banner>
         <div className="flex items-center px-20 pt-20 lg:pt-0">
           <img width={88} src="/images/polygon1.svg" alt="warning" />
@@ -73,7 +73,7 @@ const Home: NextPage = () => {
           <div className="flex w-1/2 justify-center">
             <img src="/images/character2.svg" alt="character2" />
           </div>
-          <span className="w-1/2 whitespace-pre-line px-5 text-sm text-white lg:px-10 lg:text-base">
+          <span className="w-1/2 whitespace-pre-line px-5 text-sm lg:px-10 lg:text-base">
             Cùng mời thêm nhiều người chơi để hưởng ưu đãi hoa hồng <br />{' '}
             <br />
             Ngoài chơi game kiếm vật phẩm hiếm để trao đổi cho những người cần,

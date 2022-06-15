@@ -15,7 +15,7 @@ export const Header = (props: { hideLogo?: boolean }) => {
           <img width={305} src="/logo.svg" alt="logo" />
         </div>
       )}
-      <header className="flex h-16 items-center justify-end bg-black pb-0 text-white lg:items-end lg:pb-3">
+      <header className="flex h-16 items-center justify-end bg-black pb-0 lg:items-end lg:pb-3">
         <ul className="hidden gap-16 md:flex">
           <li className="hover:text-gray-300">
             <a href="/">Trang chủ</a>

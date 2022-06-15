@@ -116,10 +116,10 @@ const Exchange: NextPageWithLayout = () => {
                 </h3>
                 <p className='text-yellow-400'>
                   = {pack.knb.toLocaleString()} KNB <img className='inline' src="/images/knb.png" width={25} alt="knb" />
-                  {!user.firstExchange && <p>{pack.bonus && `Bonus ${pack.bonus}%`}{pack.gift && ' + Tặng thú cưỡi Kim Mao Sư Vương'}</p>}
+                  {/* {!user.firstExchange && <p>{pack.bonus && `Nạp lần đầu khuyến mãi ${pack.bonus}%`}{pack.gift && ' + Tặng thú cưỡi Kim Mao Sư Vương'}</p>} */}
                 </p>
                 <div className="card-actions items-end justify-between">
-                  <code className="text-sm text-red-300">
+                  <code className="text-sm text-red-300 w-full lg:w-[70%]">
                     {!user.firstExchange && pack.note}
                   </code>
                   <button

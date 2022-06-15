@@ -59,7 +59,7 @@ export function AdminLayout({ children }: LayoutProps) {
               </ul>
             </div>
           </div>
-          <div className="w-full p-6 lg:p-16">{children}</div>
+          <div className="w-full p-5 md:p-8 lg:p-16">{children}</div>
         </div>
         <div className="drawer-side">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>

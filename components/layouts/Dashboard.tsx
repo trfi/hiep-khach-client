@@ -17,7 +17,7 @@ export function DashboardLayout({ children }: LayoutProps) {
     },
     {
       href: '/dashboard/referral',
-      title: 'Chương trình giới thiệu',
+      title: 'Giới thiệu kiếm tiền',
     },
     {
       href: '/dashboard/commission-history',

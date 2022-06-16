@@ -120,7 +120,7 @@ const Exchange: NextPageWithLayout = () => {
                 </p>
                 <div className="card-actions items-end justify-between">
                   <code className="text-sm text-red-300 w-full lg:w-[70%]">
-                    {!user.firstExchange && pack.note}
+                    {pack.note}
                   </code>
                   <button
                     onClick={(e) => buyHandle(e, pack.id)}

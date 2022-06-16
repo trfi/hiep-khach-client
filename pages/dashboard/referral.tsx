@@ -41,8 +41,9 @@ const Referral: NextPageWithLayout = () => {
 
       <div className="mt-10 flex flex-col items-center">
         <Disclosure defaultOpen={false}>
-          <Disclosure.Button className="btn btn-outline btn-success mx-auto mb-6">
-            Hoa hồng giới thiệu
+          <p>Nhận được tiền hoa hồng khi giới thiệu người chơi tham gia và mua KNB</p>
+          <Disclosure.Button className="btn btn-outline btn-success mt-3 mx-auto mb-6">
+            Xem hoa hồng giới thiệu
           </Disclosure.Button>
           <Disclosure.Panel>
             <img

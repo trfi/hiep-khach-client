@@ -18,6 +18,7 @@ const ListUser = () => {
           <th>Ví chính</th>
           <th>Ví hoa hồng</th>
           <th>Ref F1</th>
+          <th>Total Ref</th>
           <th>Nạp lần đầu</th>
           <th>Vai trò</th>
           <th>Ngày tạo</th>
@@ -42,6 +43,9 @@ const ListUser = () => {
             </td>
             <td>
               <div className="badge">{u.referralChild.length}</div>
+            </td>
+            <td>
+              <div className="badge">{u.totalRef}</div>
             </td>
             <td>
               <div className="badge">{u.firstExchange ? 'v' : 'x'}</div>

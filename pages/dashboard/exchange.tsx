@@ -103,7 +103,11 @@ const Exchange: NextPageWithLayout = () => {
         </select>
       </div>
 
-      <div className="mx-auto mt-[6vh] grid grid-cols-1 gap-6 md:grid-cols-2 xl:max-w-6xl">
+      <div className='mt-[5vh] text-center text-yellow-400 font-semibold text-lg'>
+        <a href="/images/first-deposit-bonus.png" target="_blank">Chi tiết chương trình khuyến mãi nạp lần đầu</a>
+      </div>
+
+      <div className="mt-4 mx-auto grid grid-cols-1 gap-6 md:grid-cols-2 xl:max-w-6xl">
         {knbPackages &&
           Object.values(knbPackages).map((pack: any) => (
             <div

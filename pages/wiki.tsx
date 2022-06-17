@@ -53,8 +53,12 @@ const Wiki = () => {
     },
     {
       link: 'https://drive.google.com/file/d/1VmHoWX0Ybt3qlRZz_87_nobj0dKdU8Cp/preview',
-      title: 'Hướng dẫn tải game IOS',
+      title: 'Hướng dẫn tải game trên IOS',
     },
+    {
+      link: 'https://drive.google.com/file/d/1rDnCw7gwczzjh9uXSgJVWWjBmAtUq5Rx/preview',
+      title: 'Hướng dẫn tải game trên Android'
+    }
   ]
 
   function handleClick(link: string) {

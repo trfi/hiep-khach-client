@@ -57,7 +57,7 @@ const Dashboard: NextPageWithLayout = () => {
               ></path>
             </svg>
           </div>
-          <div className="stat-title">Tổng số Ref F1</div>
+          <div className="stat-title">Số user F1</div>
           <div className="stat-value">{user?.referralChild?.length}</div>
           <div className="stat-desc">↗︎ 112 (22%)</div>
         </div>
@@ -78,8 +78,8 @@ const Dashboard: NextPageWithLayout = () => {
               ></path>
             </svg>
           </div>
-          <div className="stat-title">Đăng ký mới</div>
-          <div className="stat-value">225</div>
+          <div className="stat-title">Tổng số user giới thiệu</div>
+          <div className="stat-value">{user?.totalRef}</div>
           <div className="stat-desc">↘︎ 90 (14%)</div>
         </div>
       </div>

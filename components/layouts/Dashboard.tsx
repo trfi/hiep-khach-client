@@ -20,24 +20,24 @@ export function DashboardLayout({ children }: LayoutProps) {
       title: 'Giới thiệu kiếm tiền',
     },
     {
-      href: '/dashboard/commission-history',
-      title: 'Lịch sử hoa hồng',
+      href: '/dashboard/exchange',
+      title: 'Mua gói KNB',
     },
     {
       href: '/dashboard/wallet',
       title: 'Ví tiền',
     },
     {
+      href: '/dashboard/commission-history',
+      title: 'Lịch sử hoa hồng',
+    },
+    {
       href: '/dashboard/deposit-history',
       title: 'Lịch sử nạp',
     },
     {
-      href: '/dashboard/exchange',
-      title: 'Quy đổi KNB',
-    },
-    {
       href: '/dashboard/exchange-history',
-      title: 'Lịch sử quy đổi',
+      title: 'Lịch sử mua gói',
     },
   ]
 

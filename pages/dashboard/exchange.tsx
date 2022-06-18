@@ -63,7 +63,7 @@ const Exchange: NextPageWithLayout = () => {
   return (
     <div className="w-full">
       <div className="text-center">
-        <h1 className="text-4xl font-bold">QUY ĐỔI KNB <img className='inline' src="/images/knb.png" width={55} alt="knb" /></h1>
+        <h1 className="text-4xl font-bold">MUA GÓI KNB <img className='inline' src="/images/knb.png" width={55} alt="knb" /></h1>
       </div>
 
       <div className="mt-[4vh] flex flex-col items-center gap-6">
@@ -103,11 +103,11 @@ const Exchange: NextPageWithLayout = () => {
         </select>
       </div>
 
-      <div className='mt-[5vh] text-center text-yellow-400 font-semibold text-lg'>
-        <a href="/images/first-deposit-bonus.png" target="_blank">Chi tiết chương trình khuyến mãi nạp lần đầu</a>
+      <div className='mt-[4vh] text-center text-yellow-400 text-lg'>
+        <a href="/images/first-deposit-bonus.png" target="_blank">Chi tiết chương trình khuyến mãi nạp KNB lần đầu</a>
       </div>
 
-      <div className="mt-4 mx-auto grid grid-cols-1 gap-6 md:grid-cols-2 xl:max-w-6xl">
+      <div className="mt-5 mx-auto grid grid-cols-1 gap-6 md:grid-cols-2 xl:max-w-6xl">
         {knbPackages &&
           Object.values(knbPackages).map((pack: any) => (
             <div
@@ -130,7 +130,7 @@ const Exchange: NextPageWithLayout = () => {
                     onClick={(e) => buyHandle(e, pack.id)}
                     className="btn btn-primary disabled:bg-gray-700"
                   >
-                    Buy Now
+                    Mua Ngay
                   </button>
                 </div>
               </div>

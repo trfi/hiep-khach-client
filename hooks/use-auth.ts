@@ -5,6 +5,10 @@ import useSWR from 'swr'
 import { PublicConfiguration } from 'swr/dist/types'
 
 interface UserInfo {
+  currentPack: string
+  balance: number
+  commissionBalance: number
+  commissionUpTo: number
   totalRef: number
   referralChild: string[]
   withdrawalInfo: { payAddress: string, payNetwork: string }

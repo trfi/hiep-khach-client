@@ -109,6 +109,7 @@ const Wallet: NextPageWithLayout = () => {
                 type="number"
                 name="amount"
                 className="input input-bordered input-success w-full"
+                defaultValue={50}
                 min={50}
                 max={1000000}
                 required

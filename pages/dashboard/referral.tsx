@@ -6,9 +6,12 @@ import { faCopy } from '@fortawesome/free-solid-svg-icons'
 import { useAuth } from '@/hooks'
 import toast from 'react-hot-toast'
 import { Disclosure } from '@headlessui/react'
+import Link from 'next/link'
 
 const Referral: NextPageWithLayout = () => {
   const { user } = useAuth()
+
+  console.log(user);
 
   const refLink = `${
     typeof window !== 'undefined' && window.location.origin
@@ -23,19 +26,23 @@ const Referral: NextPageWithLayout = () => {
     <div className="w-full">
       <div className="my-8 flex flex-col items-center">
         <h2 className="text-xl font-semibold">Liên kết giới thiệu:</h2> <br />
-        <div className="form-control w-full max-w-xl">
-          <div className="input-group">
-            <input
-              type="text"
-              value={refLink}
-              disabled
-              className="input input-bordered w-full"
-            />
-            <button onClick={onCopyHandler} className="btn btn-square">
-              <FontAwesomeIcon icon={faCopy} />
-            </button>
+        {
+          user?.currentPack ? (
+            <div className="form-control w-full max-w-xl">
+            <div className="input-group">
+              <input
+                type="text"
+                value={refLink}
+                disabled
+                className="input input-bordered w-full"
+              />
+              <button onClick={onCopyHandler} className="btn btn-square">
+                <FontAwesomeIcon icon={faCopy} />
+              </button>
+            </div>
           </div>
-        </div>
+          ) : <Link href="/dashboard/exchange"><button className='hover:text-yellow-400 text-warning text-2xl'>Nạp gói từ 50$ trở trên để tham gia chương trình giới thiệu</button></Link>
+        }
       </div>
       <TreeList />
 

@@ -5,7 +5,7 @@ import useSWR from 'swr'
 import { useAuth } from '@/hooks'
 import Banner from '@/components/dashboard/Banner'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faDownload, faUserPlus, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faHandHoldingUsd, faUserPlus, faUser } from '@fortawesome/free-solid-svg-icons'
 
 const Dashboard: NextPageWithLayout = () => {
   const { data } = useSWR('/wallet/balance', {
@@ -22,10 +22,10 @@ const Dashboard: NextPageWithLayout = () => {
       <div className="stats stats-vertical w-full max-w-screen-xl bg-primary py-4 text-primary-content lg:stats-horizontal">
         <div className="stat">
           <div className="stat-figure text-info">
-            <FontAwesomeIcon size='lg' icon={faDownload} />
+            <FontAwesomeIcon size='lg' icon={faHandHoldingUsd} />
           </div>
-          <div className="stat-title">Lượt tải xuống</div>
-          <div className="stat-value">5K</div>
+          <div className="stat-title">Gói ref hiện tại</div>
+          <div className="stat-value">{user.currentPack ? user.currentPack + '$' : '--'}</div>
           <div className="stat-desc">Jan 1st - Feb 1st</div>
         </div>
 

@@ -4,7 +4,7 @@ import { modalAuthState } from '@/atoms'
 import { useAuth } from '@/hooks'
 import Error from './Error'
 
-const Login = () => {
+const ForgetPass = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [open, setOpen] = useRecoilState(modalAuthState)
   const [errors, setErrors] = useState<string[]>([])
@@ -40,7 +40,8 @@ const Login = () => {
     <>
       <Error errors={errors}></Error>
       <form onSubmit={handlerLogin} className="bg-gray-700 px-6 py-8">
-        <div className="space-y-4 px-6">
+        <div className="space-y-4 px-6 flex flex-col">
+          <label className='font-normal mx-auto' htmlFor="username">Nhập tài khoản muốn lấy lại mật khẩu</label>
           <input
             name="username"
             type="text"
@@ -48,15 +49,6 @@ const Login = () => {
             autoComplete="username"
             className="input input-bordered w-full text-center text-base"
             placeholder="Tên tài khoản"
-          />
-          <input
-            name="password"
-            type="password"
-            minLength={6}
-            required
-            autoComplete="current-password"
-            className="input input-bordered w-full text-center text-base"
-            placeholder="Mật khẩu"
           />
         </div>
 
@@ -67,11 +59,11 @@ const Login = () => {
             disabled={isLoading}
             className="btn w-full rounded-2xl border border-transparent bg-gray-500 px-4 py-3 text-base font-medium text-white hover:bg-gray-400 disabled:bg-[#cfd088]"
           >
-            Đăng nhập
+            Quên mật khẩu
           </button>
         </div>
       </form>
     </>
   )
 }
-export default Login
+export default ForgetPass

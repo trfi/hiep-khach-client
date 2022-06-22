@@ -49,7 +49,7 @@ export function useAuth(
   }
 
   async function signup(
-    loginData: { username: string; password: string, confirmPassword: string, referral: string }
+    loginData: { email:string, username: string; password: string, confirmPassword: string, referral: string }
   ) {
     await authApi
       .signup(loginData)

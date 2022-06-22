@@ -32,6 +32,7 @@ const Signup = () => {
     setErrors([])
     try {
       await signup({
+        email: e.target.email.value,
         username: e.target.username.value,
         password: e.target.password.value,
         confirmPassword: e.target.confirmPassword.value,
@@ -57,7 +58,15 @@ const Signup = () => {
             required
             autoComplete="username"
             className="input input-bordered w-full text-center text-base"
-            placeholder="Tài khoản"
+            placeholder="Tên tài khoản"
+          />
+          <input
+            name="email"
+            type="email"
+            required
+            autoComplete="email"
+            className="input input-bordered w-full text-center text-base"
+            placeholder="Email"
           />
           <input
             name="password"

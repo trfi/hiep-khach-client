@@ -7,6 +7,7 @@ import { PublicConfiguration } from 'swr/dist/types'
 interface UserInfo {
   currentPack: string
   balance: number
+  email: string,
   commissionBalance: number
   commissionUpTo: number
   totalRef: number

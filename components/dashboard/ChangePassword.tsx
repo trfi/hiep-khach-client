@@ -19,37 +19,39 @@ const ChangePassword = () => {
   return (
     <form
       onSubmit={handlerChangePassword}
-      className="w-full max-w-lg rounded-2xl bg-neutral p-8 text-center"
+      className="mx-auto flex w-full max-w-lg flex-col justify-between rounded-2xl bg-neutral p-8 text-center"
     >
-      <h3 className="mb-4 text-2xl font-semibold">Đổi Mật Khẩu</h3>
-      <div className="form-control w-full">
-        <label className="label mt-2">
-          <span className="label-text">Mật khẩu cũ</span>
-        </label>
-        <input
-          name="oldPassword"
-          type="password"
-          required
-          className="input input-bordered input-primary w-full"
-        />
-        <label className="label mt-2">
-          <span className="label-text">Mật khẩu mới</span>
-        </label>
-        <input
-          name="newPassword"
-          type="password"
-          required
-          className="input input-bordered input-primary w-full"
-        />
-        <label className="label mt-2">
-          <span className="label-text">Nhập lại mật khẩu mới</span>
-        </label>
-        <input
-          name="confirmNewPassword"
-          type="password"
-          required
-          className="input input-bordered input-primary w-full"
-        />
+      <div>
+        <h3 className="mb-4 text-2xl font-semibold">Đổi Mật Khẩu</h3>
+        <div className="form-control w-full">
+          <label className="label mt-2">
+            <span className="label-text">Mật khẩu cũ</span>
+          </label>
+          <input
+            name="oldPassword"
+            type="password"
+            required
+            className="input input-bordered input-primary w-full"
+          />
+          <label className="label mt-2">
+            <span className="label-text">Mật khẩu mới</span>
+          </label>
+          <input
+            name="newPassword"
+            type="password"
+            required
+            className="input input-bordered input-primary w-full"
+          />
+          <label className="label mt-2">
+            <span className="label-text">Nhập lại mật khẩu mới</span>
+          </label>
+          <input
+            name="confirmNewPassword"
+            type="password"
+            required
+            className="input input-bordered input-primary w-full"
+          />
+        </div>
       </div>
       <button className="btn btn-success mt-8">Đổi mật khẩu</button>
     </form>

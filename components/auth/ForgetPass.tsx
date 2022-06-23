@@ -3,35 +3,32 @@ import { useRecoilState } from 'recoil'
 import { modalAuthState } from '@/atoms'
 import { useAuth } from '@/hooks'
 import Error from './Error'
+import axiosClient from '@/api/axios-client'
+import toast from 'react-hot-toast'
 
 const ForgetPass = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [open, setOpen] = useRecoilState(modalAuthState)
   const [errors, setErrors] = useState<string[]>([])
-  
+
   useEffect(() => {
     if (!open) setTimeout(() => setErrors([]), 300)
   }, [])
-
-  const { login } = useAuth(
-    { middleware: 'guest' },
-    {
-      revalidateOnMount: false,
-    }
-  )
 
   async function handlerLogin(e: any) {
     e.preventDefault()
     setIsLoading(true)
     setErrors([])
     try {
-      await login({
+      await axiosClient.post('/auth/reset-password', {
         username: e.target.username.value,
-        password: e.target.password.value,
       })
       setOpen(false)
+      toast.success('Một email chứa liên kết lấy lại mật khẩu đã được gửi đến email của bạn. Vui lòng kiểm tra email', { duration: 10000 })
     } catch (err: any) {
-      setErrors(err && typeof err.message == 'string' ? [err.message] : err.message)
+      setErrors(
+        err && typeof err.message == 'string' ? [err.message] : err.message
+      )
     }
     setIsLoading(false)
   }
@@ -40,8 +37,10 @@ const ForgetPass = () => {
     <>
       <Error errors={errors}></Error>
       <form onSubmit={handlerLogin} className="bg-gray-700 px-6 py-8">
-        <div className="space-y-4 px-6 flex flex-col">
-          <label className='font-normal mx-auto' htmlFor="username">Nhập tài khoản muốn lấy lại mật khẩu</label>
+        <div className="flex flex-col space-y-4 px-6">
+          <label className="mx-auto font-normal" htmlFor="username">
+            Nhập tài khoản muốn lấy lại mật khẩu
+          </label>
           <input
             name="username"
             type="text"

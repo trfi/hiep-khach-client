@@ -1,13 +1,16 @@
 import axiosClient from "@/api/axios-client"
+import { useState } from "react"
 import toast from "react-hot-toast"
 import useSWR from "swr"
 
 const TransferDealerWallet = () => {
   const { mutate: balanceMuate } = useSWR('/wallet/balance')
   const { mutate: depositHistoryMutate } = useSWR('/history/deposit')
+  const [isTranfering, setIsTranfering] = useState(false)
 
   async function handleSubmit(e: any) {
     e.preventDefault()
+    setIsTranfering(true)
     try {
       await axiosClient.post(
         '/wallet/transfer-dealer',
@@ -19,9 +22,11 @@ const TransferDealerWallet = () => {
       toast.success('Chuyển tiền thành công')
       balanceMuate()
       depositHistoryMutate()
+      setIsTranfering(false)
     } catch (e: any) {
       if (e?.code == 'balance-not-enought') toast.error('Số dư không đủ')
       else toast.error(e.message)
+      setIsTranfering(false)
     }
   }
 
@@ -57,7 +62,7 @@ const TransferDealerWallet = () => {
               defaultValue={0}
               className="input input-accent"
             />
-            <button className="btn btn-primary mt-6">CHUYỂN TIỀN</button>
+            <button disabled={isTranfering} className="btn btn-primary mt-6">CHUYỂN TIỀN</button>
           </form>
         </label>
       </label>

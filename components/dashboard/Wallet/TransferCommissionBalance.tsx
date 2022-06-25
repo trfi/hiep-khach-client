@@ -4,7 +4,7 @@ import useSWR from "swr"
 
 const TransferCommissionBalance = (props: { commissionBalance: number }) => {
   const { mutate: balanceMuate } = useSWR('/wallet/balance')
-  const { mutate: depositHistoryMutate } = useSWR('/history/deposit')
+  const { mutate: dealerHistoryMutate } = useSWR('/history/dealer-transfer')
 
   async function handleSubmit(e: any) {
     e.preventDefault()
@@ -17,7 +17,7 @@ const TransferCommissionBalance = (props: { commissionBalance: number }) => {
       )
       toast.success('Chuyển sang tài khoản chính thành công')
       balanceMuate()
-      depositHistoryMutate()
+      dealerHistoryMutate()
     } catch (e: any) {
       if (e?.code == 'balance-not-enought') toast.error('Số dư không đủ')
       else toast.error(e.message)

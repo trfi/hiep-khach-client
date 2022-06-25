@@ -112,7 +112,7 @@ const Wallet: NextPageWithLayout = () => {
               <label htmlFor="my-modal-2" className="modal-button btn btn-sm">
                 Chuyển tiền
               </label>
-              <Link href="/dashboard/deposit-history">
+              <Link href="/dashboard/dealer-transfer-history">
                 <button className="btn btn-sm">Lịch sử</button>
               </Link>
             </div>

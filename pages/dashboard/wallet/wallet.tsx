@@ -7,10 +7,12 @@ import { useState } from 'react'
 import toast from 'react-hot-toast'
 import useSWR from 'swr'
 import TransferCommissionBalance from '@/components/dashboard/Wallet/TransferCommissionBalance'
+import { useAuth } from '@/hooks'
 
 const Wallet: NextPageWithLayout = () => {
   const [isDeposting, setIsDeposting] = useState(false)
   let toastPaying = ''
+  const { user } = useAuth()
   const { data, mutate } = useSWR('/wallet/balance', {
     dedupingInterval: 60 * 1000,
   })
@@ -75,7 +77,7 @@ const Wallet: NextPageWithLayout = () => {
       <div className="stats stats-vertical bg-primary py-4 text-primary-content lg:stats-horizontal">
         <div className="stat">
           <div className="stat-title">Ví chính</div>
-          <div className="stat-value mt-3 text-5xl">${data?.balance}</div>
+          <div className="stat-value mt-3 text-5xl">${user?.balance}</div>
           <div className="stat-actions mt-8">
             <Link href="/dashboard/deposit-history">
               <button className="btn btn-sm">Lịch sử nạp</button>
@@ -85,17 +87,36 @@ const Wallet: NextPageWithLayout = () => {
         <div className="stat">
           <div className="stat-title">Ví hoa hồng</div>
           <div className="stat-value mt-3 text-5xl">
-            ${data?.commissionBalance}
+            ${user?.commissionBalance}
           </div>
           <div className="stat-actions mt-8 flex flex-col gap-2 lg:flex-row">
             <Link href="/dashboard/wallet/withdrawal">
               <button className="btn btn-sm">Rút tiền</button>
             </Link>
-            <label htmlFor="my-modal-4" className="btn modal-button btn-sm">
+            <label htmlFor="my-modal-4" className="modal-button btn btn-sm">
               Chuyển sang tài khoản chính
             </label>
           </div>
         </div>
+        {user?.currentPack >= 500 && (
+          <div className="stat">
+            <div className="stat-title">Ví đại lý</div>
+            <div className="stat-value mt-3 text-5xl">
+              ${user?.dealerBalance}
+            </div>
+            <div className="stat-actions mt-8 flex flex-col gap-2 lg:flex-row">
+              <Link href="/dashboard/wallet/dealer-deposit">
+                <button className="btn btn-sm">Nạp tiền</button>
+              </Link>
+              <label htmlFor="my-modal-4" className="modal-button btn btn-sm">
+                Chuyển tiền
+              </label>
+              <Link href="/dashboard/deposit-history">
+                <button className="btn btn-sm">Lịch sử</button>
+              </Link>
+            </div>
+          </div>
+        )}
       </div>
 
       <form onSubmit={handlerSubmitDeposit} className="flex w-full">

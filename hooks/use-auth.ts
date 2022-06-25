@@ -5,7 +5,8 @@ import useSWR from 'swr'
 import { PublicConfiguration } from 'swr/dist/types'
 
 interface UserInfo {
-  currentPack: string
+  dealerBalance: number
+  currentPack: number
   balance: number
   email: string,
   commissionBalance: number

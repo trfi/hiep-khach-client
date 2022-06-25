@@ -10,7 +10,7 @@ import { useAuth } from '@/hooks'
 const Exchange: NextPageWithLayout = () => {
   const [server, setServer] = useState(0)
   const [roles, setRoles] = useState<Array<any>>([])
-  const { user, mutate: mutateUser } = useAuth()
+  const { mutate: mutateUser } = useAuth()
   const { data: servers } = useSWRImmutable('/game/servers')
   const { data: knbPackages } = useSWRImmutable('/game/knbpack')
 
@@ -31,13 +31,7 @@ const Exchange: NextPageWithLayout = () => {
     setRole(e.target.value)
   }
 
-  function test() {
-    return new Promise((resolve) => {
-      setTimeout(() => resolve(true), 1000)
-    })
-  }
-
-  async function buyHandle(e: any, packId: string) {
+  async function buyHandle(e: any, packId: number) {
     if (!role) return toast.error('Vui lòng chọn nhân vật')
     e.target.disabled = true
     try {
@@ -49,8 +43,10 @@ const Exchange: NextPageWithLayout = () => {
         role,
         character,
       })
-      await test()
-      toast.success('Mua thành công, kiểm tra thư trong game')
+      toast.success(
+        'Mua thành công, vui lòng kiểm tra hộp thư trong game để nhận',
+        { duration: 3000 }
+      )
       mutateUser()
       exchangeHistory.mutate()
       userBalance.mutate()
@@ -63,7 +59,10 @@ const Exchange: NextPageWithLayout = () => {
   return (
     <div className="w-full">
       <div className="text-center">
-        <h1 className="text-4xl font-bold">MUA GÓI KNB <img className='inline' src="/images/knb.png" width={55} alt="knb" /></h1>
+        <h1 className="text-4xl font-bold">
+          MUA GÓI KNB{' '}
+          <img className="inline" src="/images/knb.png" width={55} alt="knb" />
+        </h1>
       </div>
 
       <div className="mt-[4vh] flex flex-col items-center gap-6">
@@ -103,31 +102,39 @@ const Exchange: NextPageWithLayout = () => {
         </select>
       </div>
 
-      <div className='mt-[4vh] text-center text-yellow-400 text-lg'>
-        <a href="/images/first-deposit-bonus.png" target="_blank">Chi tiết chương trình khuyến mãi nạp KNB lần đầu</a>
+      <div className="mt-[4vh] text-center text-lg text-yellow-400">
+        <a href="/images/first-deposit-bonus.png" target="_blank">
+          Chi tiết chương trình khuyến mãi nạp KNB lần đầu
+        </a>
       </div>
 
-      <div className="mt-5 mx-auto grid grid-cols-1 gap-6 md:grid-cols-2 xl:max-w-6xl">
+      <div className="mx-auto mt-5 grid grid-cols-1 gap-6 md:grid-cols-2 xl:max-w-6xl">
         {knbPackages &&
           Object.values(knbPackages).map((pack: any) => (
             <div
               className="card bg-neutral text-slate-100 shadow-xl"
-              key={pack.id}
+              key={pack.price}
             >
               <div className="card-body">
                 <h3 className="card-title text-4xl font-bold">
                   ${pack.price.toLocaleString()}
                 </h3>
-                <p className='text-yellow-400'>
-                  = {pack.knb.toLocaleString()} KNB <img className='inline' src="/images/knb.png" width={25} alt="knb" />
+                <p className="text-yellow-400">
+                  = {pack.knb.toLocaleString()} KNB{' '}
+                  <img
+                    className="inline"
+                    src="/images/knb.png"
+                    width={25}
+                    alt="knb"
+                  />
                   {/* {!user.firstExchange && <p>{pack.bonus && `Nạp lần đầu khuyến mãi ${pack.bonus}%`}{pack.gift && ' + Tặng thú cưỡi Kim Mao Sư Vương'}</p>} */}
                 </p>
                 <div className="card-actions items-end justify-between">
-                  <code className="text-sm text-red-300 w-full lg:w-[70%]">
+                  <code className="w-full text-sm text-red-300 lg:w-[70%]">
                     {pack.note}
                   </code>
                   <button
-                    onClick={(e) => buyHandle(e, pack.id)}
+                    onClick={(e) => buyHandle(e, pack.price)}
                     className="btn btn-primary disabled:bg-gray-700"
                   >
                     Mua Ngay

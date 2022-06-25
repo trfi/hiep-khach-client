@@ -61,7 +61,7 @@ const Dashboard: NextPageWithLayout = () => {
         <div className="stat">
           <div className="stat-title">Số dư ví hoa hồng</div>
           <div className="stat-value">{user?.commissionBalance}$</div>
-          {+user?.currentPack < 500 && (
+          {user?.currentPack < 500 && (
             <div className="stat-desc text-base text-gray-300 opacity-100">
               ↗︎{' '}
               <span className="font-bold text-yellow-400 ">

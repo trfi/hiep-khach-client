@@ -16,7 +16,7 @@ const DealerDeposit: NextPageWithLayout = () => {
 
   const discount = knbPackages && knbPackages[user.currentPack]?.dealerDiscount.percent
 
-  const exchangeHistory = useSWR('/history/exchange')
+  const depositHistory = useSWR('/history/deposit')
   const userBalance = useSWR('/wallet/balance')
 
   async function checkBalance(invoice_id: number) {
@@ -28,6 +28,8 @@ const DealerDeposit: NextPageWithLayout = () => {
         clearInterval(i)
         toast.success('Payment success', { id: toastPaying })
         userBalance.mutate()
+        depositHistory.mutate()
+        setIsDeposting(false)
       }
     }, 3000)
   }
@@ -41,6 +43,7 @@ const DealerDeposit: NextPageWithLayout = () => {
         await axiosClient.post('/wallet/invoice', {
           priceAmount: +pack,
           payCurrency: 'USDTBSC',
+          isDealerWallet: true
         })
       setTimeout(() => {
         window.open(result.invoice_url, '_blank')
@@ -71,6 +74,7 @@ const DealerDeposit: NextPageWithLayout = () => {
                   Được chiết khấu {user.currentPack == 2000 && pack >= 10000 ? 10 : discount}%
                 </code>
                 <button
+                  disabled={isDeposting}
                   onClick={(e) => handlerSubmitDeposit(e, pack)}
                   className="btn btn-primary disabled:bg-gray-700"
                 >

@@ -44,6 +44,7 @@ const Wallet: NextPageWithLayout = () => {
         clearInterval(i)
         toast.success('Payment success', { id: toastPaying })
         mutate()
+        setIsDeposting(false)
       }
     }, 3000)
   }

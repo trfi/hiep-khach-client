@@ -96,7 +96,7 @@ const Wallet: NextPageWithLayout = () => {
               <button className="btn btn-sm">Rút tiền</button>
             </Link>
             <label htmlFor="my-modal-4" className="modal-button btn btn-sm">
-              Chuyển sang tài khoản chính
+              Chuyển
             </label>
           </div>
         </div>
@@ -111,9 +111,9 @@ const Wallet: NextPageWithLayout = () => {
                 <button className="btn btn-sm">Nạp tiền</button>
               </Link>
               <label htmlFor="my-modal-2" className="modal-button btn btn-sm">
-                Chuyển tiền
+                Chuyển
               </label>
-              <Link href="/dashboard/dealer-transfer-history">
+              <Link href="/dashboard/dealer-history">
                 <button className="btn btn-sm">Lịch sử</button>
               </Link>
             </div>

@@ -15,7 +15,8 @@ const DepositHistory: NextPageWithLayout = () => {
           <tr>
             <th>Payment Id</th>
             <th>Amount</th>
-            <th>Pay Currency</th>
+            <th>Pay type</th>
+            <th>Note</th>
             <th>Deposit time</th>
           </tr>
         </thead>
@@ -25,6 +26,7 @@ const DepositHistory: NextPageWithLayout = () => {
               <th>{h.paymentId}</th>
               <td><div className='badge badge-lg badge-outline badge-accent'>{h.amount} $</div></td>
               <td><div className='badge uppercase badge-primary'>{h.payCurrency}</div></td>
+              <td><div>{h.note}</div></td>
               <td><div className='badge badge-md'>{new Date(h.createdAt).toLocaleString()}</div></td>
             </tr>
           ))}

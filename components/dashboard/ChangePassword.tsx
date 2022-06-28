@@ -19,7 +19,7 @@ const ChangePassword = () => {
   return (
     <form
       onSubmit={handlerChangePassword}
-      className="mx-auto flex w-full max-w-lg flex-col justify-between rounded-2xl bg-neutral p-8 text-center"
+      className="mx-auto flex w-full md:w-1/2 flex-col justify-between rounded-2xl bg-neutral p-8 text-center"
     >
       <div>
         <h3 className="mb-4 text-2xl font-semibold">Đổi Mật Khẩu</h3>

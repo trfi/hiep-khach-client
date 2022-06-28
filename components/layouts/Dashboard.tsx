@@ -79,17 +79,21 @@ export function DashboardLayout({ children }: LayoutProps) {
         </div>
         <div className="drawer-side">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-          <ul className="menu w-72 overflow-y-auto bg-base-300 p-4 text-base-content lg:w-80">
-            <div className="mb-1 flex items-center p-4 font-bold">
-              <div className="avatar placeholder online mr-4">
-                <div className="w-10 rounded-full bg-neutral-focus text-neutral-content">
-                  <span className="text-xl uppercase">
-                    {user?.username.charAt(0)}
-                  </span>
+          <ul className="menu w-64 overflow-y-auto bg-base-300 p-4 text-base-content lg:w-72">
+            <Link href="/user">
+              <div className="mb-1 flex items-center p-4 font-bold cursor-pointer">
+                <div className="avatar placeholder online mr-4">
+                  <div className="w-10 rounded-full bg-neutral-focus text-neutral-content hover:text-white">
+                    <span className="text-xl uppercase">
+                      {user?.username.charAt(0)}
+                    </span>
+                  </div>
                 </div>
+                <p className="hover:text-white">
+                  {user ? user.username : ''}
+                </p>
               </div>
-              <Link href="/user">{user ? user.username : ''}</Link>
-            </div>
+            </Link>
             {menuItems.map(({ href, title }) => (
               <li className="my-[3px]" key={title}>
                 <Link href={href}>

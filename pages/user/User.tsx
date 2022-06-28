@@ -1,20 +1,60 @@
+import { Tab } from '@headlessui/react'
+import { NextPageWithLayout } from '@/models'
 import ChangePassword from '@/components/dashboard/ChangePassword'
 import ContactInfo from '@/components/dashboard/ContactInfo'
 import WithdrawlalInfo from '@/components/dashboard/WithdrawalInfo'
 import { DashboardLayout } from '@/components/layouts'
-import { NextPageWithLayout } from '@/models'
 
-const User: NextPageWithLayout = () => {
-  // flex flex-col lg:flex-row justify-around gap-4
+function classNames(...classes: string[]) {
+  return classes.filter(Boolean).join(' ')
+}
+
+const Example: NextPageWithLayout = () => {
+  let titles = ['Profile', 'KYC']
+
   return (
-    <div className="grid grid-cols-1 gap-8 md:grid-cols-2 2xl:grid-cols-3">
-      <ContactInfo />
-      <WithdrawlalInfo />
-      <ChangePassword />
+    <div className="w-full px-2 sm:px-0">
+      <Tab.Group>
+        <Tab.List className="mx-auto flex max-w-md space-x-1 rounded-xl bg-primary p-1">
+          {titles.map((title) => (
+            <Tab
+              key={title}
+              className={({ selected }) =>
+                classNames(
+                  'w-full rounded-lg py-2.5 text-sm font-medium leading-5',
+                  'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
+                  selected
+                    ? 'bg-white text-primary shadow'
+                    : 'text-blue-100 hover:bg-white/[0.12] hover:text-white'
+                )
+              }
+            >
+              {title}
+            </Tab>
+          ))}
+        </Tab.List>
+        <Tab.Panels className="mt-8">
+          <Tab.Panel className="rounded-xl">
+            <div className="mb-10 flex flex-col gap-10 lg:flex-row">
+              <ContactInfo />
+              <WithdrawlalInfo />
+            </div>
+            <ChangePassword />
+          </Tab.Panel>
+          <Tab.Panel
+            className={classNames(
+              'rounded-xl bg-neutral p-5 text-center lg:p-10',
+              'ring-gray-300 ring-opacity-60 ring-offset-2 ring-offset-blue-600 focus:outline-none focus:ring-1'
+            )}
+          >
+            <code className="text-2xl">COMMING SOON</code>
+          </Tab.Panel>
+        </Tab.Panels>
+      </Tab.Group>
     </div>
   )
 }
 
-User.Layout = DashboardLayout
+Example.Layout = DashboardLayout
 
-export default User
+export default Example

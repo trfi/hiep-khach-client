@@ -63,7 +63,7 @@ export function AdminLayout({ children }: LayoutProps) {
         </div>
         <div className="drawer-side">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-          <ul className="menu w-72 overflow-y-auto bg-base-300 p-4 text-base-content lg:w-80">
+          <ul className="menu overflow-y-auto bg-base-300 p-4 text-base-content w-64 lg:w-72">
             <div className="mb-1 flex items-center p-4 font-bold">
               <div className="avatar placeholder online mr-4">
                 <div className="w-10 rounded-full bg-neutral-focus text-neutral-content">

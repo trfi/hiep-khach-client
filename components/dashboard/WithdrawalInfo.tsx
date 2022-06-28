@@ -49,7 +49,7 @@ const WithdrawlalInfo = () => {
           </select>
         </div>
       </div>
-      <button className="btn btn-success mt-8">Cập nhật</button>
+      <button className="btn btn-accent mt-8">Cập nhật</button>
     </form>
   )
 }

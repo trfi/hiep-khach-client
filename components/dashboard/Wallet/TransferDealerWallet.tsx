@@ -5,7 +5,7 @@ import useSWR from "swr"
 
 const TransferDealerWallet = () => {
   const { mutate: balanceMuate } = useSWR('/wallet/balance')
-  const { mutate: depositHistoryMutate } = useSWR('/history/deposit')
+  const { mutate: dealerHistoryMutate } = useSWR('/history/dealer')
   const [isTranfering, setIsTranfering] = useState(false)
 
   async function handleSubmit(e: any) {
@@ -21,7 +21,7 @@ const TransferDealerWallet = () => {
       )
       toast.success('Chuyển tiền thành công')
       balanceMuate()
-      depositHistoryMutate()
+      dealerHistoryMutate()
       setIsTranfering(false)
     } catch (e: any) {
       if (e?.code == 'balance-not-enought') toast.error('Số dư không đủ')

@@ -40,7 +40,8 @@ const Wallet: NextPageWithLayout = () => {
       const result: string = await axiosClient.get(
         `/wallet/paymentStatus/${invoice_id}`
       )
-      if (result == 'confirmed') {
+      if (result == 'confirming') toast.loading('Confirming', { id: toastPaying })
+      else if (result == 'confirmed') {
         clearInterval(i)
         toast.success('Payment success', { id: toastPaying })
         mutate()

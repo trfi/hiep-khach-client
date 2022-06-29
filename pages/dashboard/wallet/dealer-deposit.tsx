@@ -6,17 +6,20 @@ import toast from 'react-hot-toast'
 import useSWR from 'swr'
 import useSWRImmutable from 'swr/immutable'
 import { useAuth } from '@/hooks'
+import { useRouter } from 'next/router'
 
 const DealerDeposit: NextPageWithLayout = () => {
   const { data: knbPackages } = useSWRImmutable('/game/knbpack')
   const { user, mutate: mutateUser } = useAuth()
   const { data: dealerDepositPack } = useSWRImmutable('/game/dealerDepositPack')
   const [isDeposting, setIsDeposting] = useState(false)
+  const router = useRouter()
+
   let toastPaying = ''
 
   const discount = knbPackages && knbPackages[user.currentPack]?.dealerDiscount.percent
 
-  const depositHistory = useSWR('/history/deposit')
+  const dealerHistory = useSWR('/history/dealer')
   const userBalance = useSWR('/wallet/balance')
 
   async function checkBalance(invoice_id: number) {
@@ -24,12 +27,14 @@ const DealerDeposit: NextPageWithLayout = () => {
       const result: string = await axiosClient.get(
         `/wallet/paymentStatus/${invoice_id}`
       )
-      if (result == 'confirmed') {
+      if (result == 'confirming') toast.loading('Confirming', { id: toastPaying })
+      else if (result == 'confirmed') {
         clearInterval(i)
         toast.success('Payment success', { id: toastPaying })
-        userBalance.mutate()
-        depositHistory.mutate()
         setIsDeposting(false)
+        router.push('/dashboard/wallet')
+        userBalance.mutate()
+        dealerHistory.mutate()
       }
     }, 3000)
   }

@@ -4,7 +4,7 @@ import useSWR from "swr"
 
 const TransferCommissionBalance = (props: { commissionBalance: number }) => {
   const { mutate: balanceMuate } = useSWR('/wallet/balance')
-  const { mutate: dealerHistoryMutate } = useSWR('/history/dealer-transfer')
+  const { mutate: dealerHistoryMutate } = useSWR('/history/dealer')
 
   async function handleSubmit(e: any) {
     e.preventDefault()

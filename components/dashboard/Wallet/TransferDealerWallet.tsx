@@ -42,7 +42,7 @@ const TransferDealerWallet = () => {
             ✕
           </label>
           <form onSubmit={handleSubmit} className="flex flex-col">
-            <h3 className="text-lg font-bold mb-4">
+            <h3 className="text-xl font-bold mb-6">
               Chuyển tiền từ ví đại lý cho user
             </h3>
             <label className="label">
@@ -51,7 +51,7 @@ const TransferDealerWallet = () => {
             <input
               name="username"
               placeholder="Nhập username"
-              className="input input-accent"
+              className="input input-primary"
             />
             <label className="label">
               <span className="label-text">Nhập số tiền $</span>
@@ -60,7 +60,7 @@ const TransferDealerWallet = () => {
               type="number"
               name="amount"
               defaultValue={0}
-              className="input input-accent"
+              className="input input-primary"
             />
             <button disabled={isTranfering} className="btn btn-primary mt-6">CHUYỂN TIỀN</button>
           </form>

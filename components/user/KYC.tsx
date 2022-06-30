@@ -1,9 +1,8 @@
-import toast from "react-hot-toast";
+import toast from 'react-hot-toast'
 
 const KYC = () => {
-
   const handleUpload = () => {
-    document.getElementById('id-front')?.click();
+    document.getElementById('id-front')?.click()
   }
 
   const handleSubmit = (e: any) => {
@@ -12,31 +11,31 @@ const KYC = () => {
   }
 
   return (
-    <div className="flex w-full gap-4">
+    <div className="flex flex-col lg:flex-row w-full gap-4">
       <div className="flex w-full flex-col gap-4">
-        <div className="rounded-md border border-accent p-3">
-          - Tải lên CMND/CCCD/Passport để chúng tôi xác minh danh tính của bạn{' '}
-          <br />- Tải lên hình ảnh rõ ràng cho mỗi mục. Loại tệp chấp nhận JPG,
-          JPEG, PNG & kích thước tối đa 10Mb
+        <div className="bg-neutral rounded-lg border border-accent p-3">
+          - Tải lên CMND/CCCD/Passport để chúng tôi xác minh danh tính của bạn
+          <br />- Tải lên hình ảnh rõ ràng cho mỗi mục
+          <br />- Loại tệp chấp nhận: JPG, JPEG, PNG. Kích thước tối đa 10Mb
         </div>
         <div
-          className="fill flex gap-4"
+          className="fill flex-col lg:flex-row flex gap-4"
           style={{ height: '-webkit-fill-available' }}
         >
-          <div className="w-full flex flex-col justify-around rounded-md border border-accent p-3">
+          <div className="bg-neutral flex w-full flex-col justify-around rounded-lg border border-accent p-3">
             <div className="flex flex-col items-center justify-center">
               <p className="mb-3 text-xl font-bold">Mặt trước</p>
               <div className="cursor-pointer" onClick={handleUpload}>
                 <img src="/images/id-front.svg" alt="id-front" />
               </div>
-              <input id='id-front' type='file' hidden/>
+              <input id="id-front" type="file" hidden />
             </div>
             <ul className="list-disc pl-4 text-sm">
               <li>Ảnh gốc không chỉnh sửa</li>
               <li>Hình ảnh đầy đủ của mặt trước CMND/CCCD</li>
             </ul>
           </div>
-          <div className="w-full flex flex-col justify-around rounded-md border border-accent p-3">
+          <div className="bg-neutral flex w-full flex-col justify-around rounded-lg border border-accent p-3">
             <div className="flex flex-col items-center justify-center">
               <p className="mb-4 text-xl font-bold">Mặt sau</p>
               <div className="cursor-pointer" onClick={handleUpload}>
@@ -48,7 +47,7 @@ const KYC = () => {
               <li>Hình ảnh đầy đủ của mặt trước CMND/CCCD</li>
             </ul>
           </div>
-          <div className="w-full flex flex-col justify-around rounded-md border border-accent p-3">
+          <div className="bg-neutral flex w-full flex-col justify-around rounded-lg border border-accent p-3">
             <div className="flex flex-col items-center justify-center">
               <p className="mb-4 text-xl font-bold">Ảnh selfie</p>
               <div className="cursor-pointer" onClick={handleUpload}>
@@ -57,12 +56,12 @@ const KYC = () => {
             </div>
             <ul className="list-disc pl-4 text-sm">
               <li>Ảnh gốc không chỉnh sửa</li>
-              <li>Hình ảnh đầy đủ của mặt trước CMND/CCCD</li>
+              <li>Ảnh selfie với CMND/CCCD rõ ràng, không bị mờ</li>
             </ul>
           </div>
         </div>
       </div>
-      <div className="rounded-md border border-accent p-3">
+      <div className="bg-neutral rounded-lg border border-accent p-3">
         <form className="form-control min-w-[15rem]" onSubmit={handleSubmit}>
           <label className="label">
             <span className="label-text">Họ và tên</span>
@@ -80,7 +79,6 @@ const KYC = () => {
             name="phoneNumber"
             required
             type="number"
-            minLength={10}
             className="input input-bordered input-primary"
           />
 
@@ -91,7 +89,6 @@ const KYC = () => {
             name="idNumber"
             required
             type="number"
-            minLength={9}
             className="input input-bordered input-primary"
           />
 
@@ -104,7 +101,7 @@ const KYC = () => {
             <option value="other">Khác</option>
           </select>
 
-          <button className="btn btn-primary btn-sm mt-6">Gửi</button>
+          <button className="btn btn-accent btn-sm mt-6">Gửi</button>
         </form>
       </div>
     </div>

@@ -26,7 +26,7 @@ const WithdrawlalInfo = () => {
       className="mx-auto flex w-full md:w-1/2 flex-col justify-between rounded-2xl bg-neutral p-8 text-center"
     >
       <div>
-        <h3 className="mb-4 text-2xl font-semibold">Thông tin thanh toán</h3>
+        <h3 className="mb-4 text-xl font-semibold">Thông tin thanh toán</h3>
         <div className="form-control w-full">
           <label className="label mt-2">
             <span className="label-text">Địa chỉ ví</span>
@@ -35,7 +35,7 @@ const WithdrawlalInfo = () => {
             name="payAddress"
             required
             defaultValue={user?.withdrawalInfo?.payAddress}
-            className="input input-bordered input-primary w-full"
+            className="input input-bordered input-sm input-primary w-full"
           />
           <label className="label mt-2">
             <span className="label-text">Mạng</span>
@@ -43,13 +43,13 @@ const WithdrawlalInfo = () => {
           <select
             name="payNetwork"
             defaultValue={user?.withdrawalInfo?.payNetwork}
-            className="select select-primary w-full"
+            className="select select-sm select-primary w-full"
           >
             <option value="BEP20">BEP20</option>
           </select>
         </div>
       </div>
-      <button className="btn btn-accent mt-8">Cập nhật</button>
+      <button className="btn btn-sm btn-accent mt-8 px-10 mx-auto">Cập nhật</button>
     </form>
   )
 }

@@ -4,6 +4,7 @@ import ChangePassword from '@/components/dashboard/ChangePassword'
 import ContactInfo from '@/components/dashboard/ContactInfo'
 import WithdrawlalInfo from '@/components/dashboard/WithdrawalInfo'
 import { DashboardLayout } from '@/components/layouts'
+import KYC from '../../components/user/KYC'
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
@@ -42,12 +43,9 @@ const Example: NextPageWithLayout = () => {
             <ChangePassword />
           </Tab.Panel>
           <Tab.Panel
-            className={classNames(
-              'rounded-xl bg-neutral p-5 text-center lg:p-10',
-              'ring-gray-300 ring-opacity-60 ring-offset-2 ring-offset-blue-600 focus:outline-none focus:ring-1'
-            )}
+            className="rounded-xl"
           >
-            <code className="text-2xl">COMMING SOON</code>
+            <KYC />
           </Tab.Panel>
         </Tab.Panels>
       </Tab.Group>

@@ -30,7 +30,7 @@ const Items = () => {
     },
     {
       id: 12348,
-      name: 'Thú Cưỡi Ngựa',
+      name: 'Thú Cưỡi Tuyết Ngân',
       rank: 'Cực Hiếm',
       price: 200,
       image: '/images/items/ngua.jpg',
@@ -45,10 +45,10 @@ const Items = () => {
   ]
 
   return (
-    <div className="flex flex-col-reverse lg:flex-row gap-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+    <div className="flex flex-col-reverse lg:flex-row gap-6 justify-between">
+      <div className="flex flex-wrap gap-6">
         {items.map((item) => (
-          <div className="rounded-2xl border-t-4 border-yellow-400 bg-neutral p-3">
+          <div className="rounded-2xl border-t-4 border-yellow-400 hover:border-yellow-100 bg-neutral p-3 w-60 h-fit">
             <div className="mb-1 rounded-t-lg font-semibold text-white">
               <p>{item.name}</p>
             </div>
@@ -65,7 +65,7 @@ const Items = () => {
           </div>
         ))}
       </div>
-      <div className="w-full max-w-xs rounded-lg bg-slate-800 p-4 lg:p-6">
+      <div className="w-full max-w-xs rounded-lg bg-slate-800 p-4 lg:p-6 h-fit">
         <h4 className="mb-0 lg:mb-2 text-lg lg:text-xl font-semibold">Sắp xếp</h4>
         <label className="label">
           <span className="label-text">Giá</span>

@@ -13,7 +13,7 @@ const KYC = () => {
   return (
     <div className="flex flex-col lg:flex-row w-full gap-4">
       <div className="flex w-full flex-col gap-4">
-        <div className="bg-neutral rounded-lg border border-accent p-3">
+        <div className="bg-neutral rounded-lg p-4">
           - Tải lên CMND/CCCD/Passport để chúng tôi xác minh danh tính của bạn
           <br />- Tải lên hình ảnh rõ ràng cho mỗi mục
           <br />- Loại tệp chấp nhận: JPG, JPEG, PNG. Kích thước tối đa 10Mb
@@ -22,7 +22,7 @@ const KYC = () => {
           className="fill flex-col lg:flex-row flex gap-4"
           style={{ height: '-webkit-fill-available' }}
         >
-          <div className="bg-neutral flex w-full flex-col justify-around rounded-lg border border-accent p-3">
+          <div className="bg-neutral flex w-full flex-col justify-around rounded-lg p-4">
             <div className="flex flex-col items-center justify-center">
               <p className="mb-3 text-xl font-bold">Mặt trước</p>
               <div className="cursor-pointer" onClick={handleUpload}>
@@ -35,7 +35,7 @@ const KYC = () => {
               <li>Hình ảnh đầy đủ của mặt trước CMND/CCCD</li>
             </ul>
           </div>
-          <div className="bg-neutral flex w-full flex-col justify-around rounded-lg border border-accent p-3">
+          <div className="bg-neutral flex w-full flex-col justify-around rounded-lg p-4">
             <div className="flex flex-col items-center justify-center">
               <p className="mb-4 text-xl font-bold">Mặt sau</p>
               <div className="cursor-pointer" onClick={handleUpload}>
@@ -47,7 +47,7 @@ const KYC = () => {
               <li>Hình ảnh đầy đủ của mặt trước CMND/CCCD</li>
             </ul>
           </div>
-          <div className="bg-neutral flex w-full flex-col justify-around rounded-lg border border-accent p-3">
+          <div className="bg-neutral flex w-full flex-col justify-around rounded-lg p-4">
             <div className="flex flex-col items-center justify-center">
               <p className="mb-4 text-xl font-bold">Ảnh selfie</p>
               <div className="cursor-pointer" onClick={handleUpload}>
@@ -61,7 +61,7 @@ const KYC = () => {
           </div>
         </div>
       </div>
-      <div className="bg-neutral rounded-lg border border-accent p-3">
+      <div className="bg-neutral rounded-lg p-4">
         <form className="form-control min-w-[15rem]" onSubmit={handleSubmit}>
           <label className="label">
             <span className="label-text">Họ và tên</span>
@@ -101,7 +101,7 @@ const KYC = () => {
             <option value="other">Khác</option>
           </select>
 
-          <button className="btn btn-accent btn-sm mt-6">Gửi</button>
+          <button className="btn btn-accent btn-sm mt-8">Gửi</button>
         </form>
       </div>
     </div>

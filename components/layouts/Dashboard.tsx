@@ -24,6 +24,10 @@ export function DashboardLayout({ children }: LayoutProps) {
       title: 'Mua gói KNB',
     },
     {
+      href: '/dashboard/marketplace',
+      title: 'Marketplace',
+    },
+    {
       href: '/dashboard/wallet',
       title: 'Ví tiền',
     },

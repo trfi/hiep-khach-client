@@ -51,6 +51,6 @@ html {
 }
 
 .col-lg-8 {
-  flex: 0 0 90%;
-  max-width: 90%;
+  flex: 0 0 100%;
+  max-width: 100%;
 }

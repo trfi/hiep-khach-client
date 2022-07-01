@@ -1,19 +1,18 @@
-import { Tab } from '@headlessui/react'
-import { NextPageWithLayout } from '@/models'
-import ChangePassword from '@/components/dashboard/ChangePassword'
-import ContactInfo from '@/components/dashboard/ContactInfo'
-import WithdrawlalInfo from '@/components/dashboard/WithdrawalInfo'
 import { DashboardLayout } from '@/components/layouts'
-import KYC from '@/components/user/KYC'
+import { NextPageWithLayout } from '@/models'
+import { Tab } from '@headlessui/react'
 import classNames from '@/utils/className'
+import Items from '../../components/dashboard/Marketplace/Items'
+import Boxes from '../../components/dashboard/Marketplace/Boxes'
 
-const Example: NextPageWithLayout = () => {
-  let titles = ['Profile', 'KYC']
+const Marketplace: NextPageWithLayout = () => {
+  let titles = ['Items', 'Boxes']
 
   return (
-    <div className="w-full">
+    <div>
+      <h1 className="mb-4 text-3xl font-bold lg:mb-6">Marketplace</h1>
       <Tab.Group>
-        <Tab.List className="mx-auto flex max-w-md space-x-1 rounded-xl bg-primary p-1">
+        <Tab.List className="flex max-w-md space-x-1 rounded-xl bg-primary p-1">
           {titles.map((title) => (
             <Tab
               key={title}
@@ -33,16 +32,10 @@ const Example: NextPageWithLayout = () => {
         </Tab.List>
         <Tab.Panels className="mt-6 lg:mt-8">
           <Tab.Panel className="rounded-xl">
-            <div className="mb-6 lg:mb-10 flex flex-col gap-6 lg:gap-10 lg:flex-row">
-              <ContactInfo />
-              <WithdrawlalInfo />
-            </div>
-            <ChangePassword />
+            <Items />
           </Tab.Panel>
-          <Tab.Panel
-            className="rounded-xl"
-          >
-            <KYC />
+          <Tab.Panel className="rounded-xl">
+            <Boxes />
           </Tab.Panel>
         </Tab.Panels>
       </Tab.Group>
@@ -50,6 +43,6 @@ const Example: NextPageWithLayout = () => {
   )
 }
 
-Example.Layout = DashboardLayout
+Marketplace.Layout = DashboardLayout
 
-export default Example
+export default Marketplace
